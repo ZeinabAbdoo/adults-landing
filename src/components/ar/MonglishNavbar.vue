@@ -43,6 +43,8 @@ export default {
     justify-content: space-between; 
     align-items: center; 
     z-index: 1000;
+    position: relative;
+    padding: 0 5%;
 }
 
 .navbar button{

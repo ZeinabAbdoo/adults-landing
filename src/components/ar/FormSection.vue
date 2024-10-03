@@ -37,7 +37,7 @@
         </div>
         <input type="hidden" v-model="fullPhoneNumber" />
         <input type="hidden" v-model="countryCode" />
-        <button type="submit" class="pop-btn">اشترك الآن</button>
+        <button type="submit" class="pop-btn" id="adults-btn">اشترك الآن</button>
       <div v-if="successMessage" class="success-message">{{ successMessage }}</div>
       </form>
     </div>
@@ -65,7 +65,7 @@ export default {
       isValidPhone: false,
       fullPhoneNumber: '',
       loading: false,
-      successMessage: '', // New variable for success message
+      successMessage: '', 
     };
   },
   methods: {
@@ -85,15 +85,15 @@ export default {
         console.error('Phone number is missing or invalid.');
         return;
       }
-
-      // Start loading
       this.loading = true;
-
       const payload = {
         name: this.fullName,
         email: this.email,
         phone: this.fullPhoneNumber,
+        stage: 'adults', 
       };
+
+      console.log("Payload before sending:", payload);
 
       let headers = { 'Content-Type': 'application/json' };
       axios.post(`/api/free-session-forms`, payload, { headers })
@@ -101,13 +101,12 @@ export default {
           const data = response.data;
           if (response.status === 201) {
             console.log('Form submitted successfully:', data);
-            this.successMessage = 'تم التسجيل بنجاح!'; // Success message
-            // Clear input fields
+            this.successMessage = 'تم التسجيل بنجاح!'; 
             this.fullName = '';
             this.email = '';
             this.phoneNumber = '';
             this.fullPhoneNumber = '';
-            this.country = null; // Reset the country as well
+            this.country = null; 
           } else {
             console.error('Error in response:', data.message || 'Unknown error');
           }
@@ -116,7 +115,6 @@ export default {
           console.error('Error submitting form:', error);
         })
         .finally(() => {
-          // Stop loading
           this.loading = false;
         });
     },
@@ -135,45 +133,49 @@ export default {
   font-family: 'DIN Next LT Arabic';
   font-weight: 500;
   display: flex;
-  justify-content: center; 
-  padding: 40px; 
-  transition: background 0.5s; /* Smooth background transition */
+  justify-content: center;
+  padding: 40px;
+  transition: background 0.5s;
 }
 
 .content-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; 
+  align-items: flex-start;
   width: 100%;
-  max-width: 1200px; /* Maximum width for better layout */
-  margin: 0 auto; /* Center the content */
-  padding: 10% 0;
-  border-radius: 15px; /* Added rounded corners for a softer look */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  margin: 0 auto;
+  padding: 10% 3%;
+  border-radius: 15px;
+}
+
+.form-pop {
+  width: 100%;
 }
 
 .text-container {
-  width: 45%; /* Adjusted width */
-  padding: 10px; /* Add padding around the text */
+  width: 50%;
+  padding: 10px;
 }
 
-h1 {
-  margin-bottom: 15px; /* Increased spacing below heading */
+.text-container h1 {
+  margin-bottom: 15px;
   font-family: 'DIN Next LT Arabic';
   font-weight: 500;
+  font-size: 48px;
 }
 
-p {
-  color: #fff; /* Ensure the paragraph text is visible */
-  margin-bottom: 25px; /* Increased spacing below paragraph */
+.text-container p {
+  color: #fff;
+  margin-bottom: 25px;
   font-family: 'DIN Next LT Arabic';
   font-weight: 500;
+  font-size: 20px;
 }
 
 .pop-form {
   text-align: right;
   direction: rtl;
-  width: 45%; /* Adjusted width */
+  width: 50%;
 }
 
 .pop-input {
@@ -183,17 +185,18 @@ p {
   border-radius: 15px;
   background-color: #f3f7ff;
   border: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: border 0.3s; /* Smooth border transition */
-  height: 30px; /* Set a consistent height */
+  color: #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s;
+  height: 50px;
 }
 
 .pop-input:focus {
-  border: 2px solid #ff9442; /* Highlight on focus */
+  border: 2px solid #ff9442;
 }
 
 form .form-pop {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .pop-label {
@@ -214,29 +217,99 @@ form .form-pop {
   background: linear-gradient(45deg, #ff9442, #ff6f00);
   color: white;
   border: none;
-  padding: 0.1em 0.8em 0.4em 0.8em; /* Increased padding for a better button size */
+  padding: 0.1em 0 0.4em 0;
   cursor: pointer;
-  border-radius: 25px;
-  width: 100%; /* Adjusted button width */
-  margin-top: 20px; /* Margin for better spacing */
-  font-size: 1.3em; 
-  transition: background 0.3s, transform 0.3s; /* Transition effects */
-    font-family: 'DIN Next LT Arabic';
+  border-radius: 20px;
+  width: 97%;
+  margin-top: 20px;
+  font-size: 1.3em;
+  transition: background 0.3s, transform 0.3s;
+  font-family: 'DIN Next LT Arabic';
   font-weight: 500;
 }
 
 .pop-btn:hover {
   background: linear-gradient(45deg, #ff6f00, #ff9442);
-  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .success-message {
   margin-top: 20px;
   padding: 10px;
-  background-color: rgba(0, 128, 0, 0.1); /* Light green background */
-  color: #008000; /* Dark green text */
-  border: 1px solid #008000; /* Green border */
+  background-color: rgba(0, 128, 0, 0.1);
+  color: #008000;
+  border: 1px solid #008000;
   border-radius: 5px;
-  text-align: center; /* Center text */
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .content-container {
+    padding: 5% 2%;
+  }
+  .text-container, .pop-form {
+    width: 48%;
+  }
+  .text-container h1 {
+    font-size: 42px;
+  }
+  .text-container p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 992px) {
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .text-container, .pop-form {
+    width: 100%;
+    text-align: center;
+  }
+  .text-container h1 {
+    font-size: 36px;
+  }
+  .text-container p {
+    font-size: 16px;
+  }
+  .pop-form {
+    text-align: center;
+    direction: rtl;
+  }
+  .inline-group {
+    flex-direction: column;
+  }
+  .pop-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-section {
+    padding: 30px 20px;
+  }
+  .text-container h1 {
+    font-size: 28px;
+  }
+  .text-container p {
+    font-size: 16px;
+  }
+  .pop-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-section {
+    padding: 20px 10px;
+  }
+
+  .text-container h1 {
+    font-size: 24px;
+  }
+
+  .text-container p {
+    font-size: 14px;
+  }
 }
 </style>

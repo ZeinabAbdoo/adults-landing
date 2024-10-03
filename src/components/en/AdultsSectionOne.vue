@@ -61,7 +61,7 @@ export default {
   box-sizing: border-box;
   margin-top: -85px;
   transform: scalex(-1);
-  z-index: -1;
+  z-index: 1;
   position: relative;
 }
 

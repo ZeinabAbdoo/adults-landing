@@ -49,7 +49,7 @@ export default {
   height: 100vh;
   direction: rtl;
   margin-top: -85px;
-  z-index: -1;
+  z-index: 0;
 }
 
 .adults-sec1::before {
@@ -59,7 +59,6 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
 }
 
 .text-container {

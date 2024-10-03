@@ -27,7 +27,9 @@
         <div class="first-msg"><span>Hello👋<br>Can we help you?</span></div>
         <div class="blanter-msg">
           <textarea id="chat-input" v-model="chatInput" placeholder="Type your message and press send" maxlength="120" rows="1"></textarea>
-          <a href="#" id="send-it" @click="sendMessage"><i class="fas fa-paper-plane"></i></a>
+          <button id="send-it" @click="sendMessage">
+            <i class="fas fa-paper-plane"></i>
+          </button>
         </div>
       </div>
       <div id="get-number">{{ getNumber }}</div>
@@ -80,13 +82,18 @@ export default {
         const data = await response.json();
         this.getNumber = data.phone_number;
 
-        if (this.chatInput !== '' && this.getNumber) {
-          const baseUrl = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-              ? 'whatsapp://send'
-              : 'https://web.whatsapp.com/send';
-          const url = `${baseUrl}?phone=${this.getNumber}&text=${this.chatInput}`;
-          window.open(url, '_blank');
-        }
+        // Define the base URL for WhatsApp, depending on the platform
+        const baseUrl = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+          ? 'whatsapp://send'
+          : 'https://web.whatsapp.com/send';
+
+        // Create the WhatsApp URL
+        const url = this.chatInput !== ''
+          ? `${baseUrl}?phone=${this.getNumber}&text=${this.chatInput}` // With a message
+          : `${baseUrl}?phone=${this.getNumber}`; // Without a message
+
+        // Open WhatsApp
+        window.open(url, '_blank');
       } catch (error) {
         console.error('Error fetching phone number:', error);
       }
@@ -115,8 +122,8 @@ a:link,a:visited {
 	max-width: 400px; /* Ensures it doesn't exceed 400px */
 	border-radius: 25px;
 	box-shadow: 0 1px 15px rgba(32, 33, 36, .28);
-	bottom: 12%; /* Adjusted for smaller screens */
-	left: 1%; /* Adjusted for smaller screens */
+	bottom: 20px; /* Adjusted for smaller screens */
+	right: 10px; /* Adjusted for smaller screens */
 	overflow: hidden;
 	z-index: 99;
 	animation-name: showchat;
@@ -154,17 +161,15 @@ a.blantershow-chat {
 	position: fixed;
 	z-index: 98;
 	bottom: 2%;
-	left: 1%;
+	right: 1%;
 	font-size: 3em;
 	border-radius: 30px;
 	box-shadow: 0 1px 15px rgba(32, 33, 36, .28);
   display: flex;
-  direction: rtl;
-  padding: 4px 8px;
 }
 a.blantershow-chat i {
-	transform: scale(1);
-	margin: 0 4px 0 4px;
+	transform: scale(1.2);
+	margin: 0 10px 0 0;
 }
 a.blantershow-chat svg{
   margin: 5px 10px;
@@ -243,22 +248,28 @@ textarea#chat-input {
 textarea#chat-input::placeholder {
     width: 98%;
 }
-a#send-it {
+button#send-it {
   color: #25d366;
   width: 35px;
-	font-size: 20px;
+  font-size: 20px;
   font-weight: 700;
   padding: 8px;
-	background-color: none;
-	margin-top: 10px;
+  background-color: transparent; /* Use transparent instead of 'none' */
+  margin-top: 10px;
   border-radius: 50%;
   position: absolute;
   right: 5%;
-  height: 25px;
+  height: 35px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none; /* Remove button border */
+  cursor: pointer; /* Ensure button has pointer cursor */
+}
+
+button#send-it:hover {
+  background-color: rgba(37, 211, 102, 0.2); /* Optional: Add hover effect */
 }
 .first-msg {
 	background: #f5f5f5;
