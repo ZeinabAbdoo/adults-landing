@@ -1,4 +1,6 @@
 <template>
+  <PopUp/>
+
   <div style="background-color: #fff;">
     <div class="ilets-sec1">
       <div class="sec1-content">
@@ -75,7 +77,7 @@
       </div>
     </div>
 
-    <ViewIlets />
+    <ViewFour />
 
     <div class="full-section">
       <div class="Last-section">
@@ -112,11 +114,12 @@ import IletsSlider from '../../components/ar/IletsSlider.vue';
 import PackagesIlets from '../../components/ar/PackagesIlets.vue';
 import ViewFour from '../../components/ar/ViewFour.vue';
 import FormSection2 from '../../components/ar/FormSection2.vue';
+  import PopUp from '../../components/ar/PopUp2.vue';
 
 export default {
   name: "IletsCourses",
   components: {
-    IletsSlider,PackagesIlets,ViewFour,FormSection2
+    IletsSlider,PackagesIlets,ViewFour,FormSection2,PopUp
   },
   
   methods : {
