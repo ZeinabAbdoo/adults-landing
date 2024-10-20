@@ -1,187 +1,190 @@
 <template>
   <div class="packages" id="packages-ilets-section">
     <div class="packages-title-n">
-      <h3>الأسعار</h3>
-      <h1>خطط الأسعار وبرامج التحضير لاختبار IELTS</h1>
+      <h3>Prices</h3>
+      <h1>Pricing plans and preparation programs for the IELTS exam</h1>
     </div>
 
     <!-- Package Duration Selection (Only for ilets) -->
     <div class="packages-menu-n" v-if="selectedFilter === 'ilets'">
       <ul>
-        <li @click="selectMenu('two-months')" :class="{ selected: selectedMenu === 'two-months' }">شهرين</li>
-        <li @click="selectMenu('four-months')" :class="{ selected: selectedMenu === 'four-months' }">4 أشهر</li>
+        <li @click="selectMenu('two-months')" :class="{ selected: selectedMenu === 'two-months' }">2 Months</li>
+        <li @click="selectMenu('four-months')" :class="{ selected: selectedMenu === 'four-months' }">4 Months</li>
       </ul>
     </div>
 
     <!-- ilets Packages -->
     <div v-if="selectedFilter === 'ilets'">
       <div class="packages-cards"  v-if="selectedMenu === 'two-months'">
-        <!-- Two Months Cards -->
+        <!-- 2 Months Cards -->
         <div class="package-card">
           <div class="card-header">
-             <h3>
-                <span> (شهرين) </span>
-                <br>
-                المعايشة بلس
-             </h3>
+            <h3>
+              <span> (2 Months) </span>
+              <br>
+              Immersion Plus
+            </h3>
           </div>
 
           <div class="card-body">
-            <p>توفر أقصى قدر من الفوائد مع جلسات نادي إضافية، 3 تقييمات شهريًا، وجلسات دعم فردية أسبوعية، مما يجعلها الخيار الأكثر شمولاً.</p>
+            <p>Provides the maximum benefits with additional club sessions, 3 monthly assessments, and weekly individual support sessions, making it the most comprehensive option.</p>
             <h2>{{ prices[25]?.price }}
               <span class="sloped-line">{{ prices[25]?.beforePrice }}</span> 
             </h2>
-            <h6>واستمتع بالاتي:</h6>
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>جلستان كل أسبوع</li>
-              <li>3 جلسات نادي كل أسبوع ("التحدث، الكتابة، والفيلم")</li>
-              <li>3 تقييمات كل شهر (اختبار IELTS كامل)</li>
-              <li>تقارير الجلسات</li>
-              <li>تصحيح الواجبات والتقييم</li>
-              <li>تسجيل الجلسات</li>
-              <li>ملفات مجانية</li>
-              <li>جلسة دعم فردية كل أسبوع للتحدث والاستماع</li>
+              <li>2 sessions per week</li>
+              <li>3 club sessions per week ("Writing, and Film")</li>
+              <li>Daily Speaking Club</li>
+              <li>3 Evalutions per month (Full IELTS Exam)</li>
+              <li>Session Reports</li>
+              <li>Homework and Evalutions correction</li>
+              <li>Recorded Session</li>
+              <li>Free Resourses</li>
+              <li>One to One support session per week for speaking and listening</li>
             </ul>
-            <button @click="addToCart(prices[25]?.packageId)">شراء</button>
+            <button @click="addToCart(prices[25]?.packageId)">Buy</button>
           </div>
         </div>
+
         <div class="package-card">
           <div class="card-header">
-            <h3><span> (شهرين)</span>
-            <br>المعايشة</h3>
+            <h3><span> (2 Months) </span>
+            <br> Immersion</h3>
           </div>
+
           <div class="card-body">
-            <p>تقدم عددًا أكبر من جلسات النادي والتقييمات مقارنة بالأساسية.</p>
+            <p>Offers more club sessions and assessments compared to the basic package.</p>
             <h2>{{ prices[26]?.price }}
               <span class="sloped-line">{{ prices[26]?.beforePrice }}</span> 
             </h2>
             
-            <h6>واستمتع بالاتي:</h6>
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>جلستان كل أسبوع</li>
-              <li>جلستان نادي كل أسبوع ("التحدث، الكتابة")</li>
-              <li>تقييم واحد كل شهر (اختبار IELTS كامل)</li>
-              <li>تقارير الجلسات</li>
-              <li>تصحيح الواجبات والتقييم</li>
-              <li>تسجيل الجلسات</li>
-              <li>ملفات مجانية</li>
+              <li>2 sessions per week</li>
+              <li>2 club sessions per week ("Speaking, Writing")</li>
+              <li>2 Evaluations per month (Full IELTS test)</li>
+              <li>Session Reports</li>
+              <li>Homework and Evaluations correction</li>
+              <li>Recorded Session</li>
+              <li>Free Resourses</li>
             </ul>
-            <button @click="addToCart(prices[26]?.packageId)">شراء</button>
+            <button @click="addToCart(prices[26]?.packageId)">Buy</button>
           </div>
         </div>
+
         <div class="package-card">
           <div class="card-header">
-            <h3><span> (شهرين)</span>
-            <br>
-            أساسية</h3>
+            <h3><span> (2 Months) </span>
+            <br> Basic</h3>
           </div>
+
           <div class="card-body">
-            <p>الحد الأدنى من الدعم مع جلستين أسبوعيًا وجلسة نادي واحدة وتقييم شهري.</p>
+            <p>The minimum support with two sessions per week, one club session, and one monthly assessment.</p>
             <h2>{{ prices[27]?.price }}
               <span class="sloped-line">{{ prices[27]?.beforePrice }}</span> 
             </h2>
-     
-            <h6>واستمتع بالاتي:</h6>
+            
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>جلستان كل أسبوع</li>
-              <li>جلسة نادي كل أسبوع ("فيلم")</li>
-              <li>تقييم واحد كل شهر (اختبار IELTS كامل)</li>
-              <li>تقارير الجلسات</li>
-              <li>تصحيح الواجبات والتقييم</li>
-              <li>تسجيل الجلسات</li>
-              <li>ملفات مجانية</li>
+              <li>2 sessions per week</li>
+              <li>Club session per week ("Film")</li>
+              <li>Evaluation per month (full IELTS test)</li>
+              <li>Session Reports</li>
+              <li>Homework and Evaluation correction</li>
+              <li>Recorded Session</li>
+              <li>Free Resourses</li>
             </ul>
-            <button @click="addToCart(prices[27]?.packageId)">شراء</button>
+            <button @click="addToCart(prices[27]?.packageId)">Buy</button>
           </div>
         </div>
-      </div>
 
-      <div class="packages-cards" v-else-if="selectedMenu === 'four-months'">
-        <!-- Four Months Cards -->
+              </div>
+
+              <div class="packages-cards" v-else-if="selectedMenu === 'four-months'">
+                <!-- Four Months Cards -->
         <div class="package-card">
           <div class="card-header">
             <h3>
-              <span> (4 شهور)</span>
+              <span> (4 Months) </span>
               <br>
-              المعايشة بلس</h3>
+              Immersion Plus
+            </h3>
           </div>
+
           <div class="card-body">
-            <p>توفر أقصى قدر من الفوائد مع جلسات نادي إضافية، 3 تقييمات شهريًا، وجلسات دعم فردية أسبوعية، مما يجعلها الخيار الأكثر شمولاً.</p>
-            <h2>
-              {{ prices[28]?.price }}
+            <p>Provides the maximum benefits with additional club sessions, 3 monthly assessments, and weekly individual support sessions, making it the most comprehensive option.</p>
+            <h2>{{ prices[28]?.price }}
               <span class="sloped-line">{{ prices[28]?.beforePrice }}</span> 
-
             </h2>
-            <h6>واستمتع بالاتي:</h6>
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>جلستان كل أسبوع</li>
-              <li>3 جلسات نادي كل أسبوع ("التحدث، الكتابة، والفيلم")</li>
-              <li>3 تقييمات كل شهر (اختبار IELTS كامل)</li>
-              <li>تقارير الجلسات</li>
-              <li>تصحيح الواجبات والتقييم</li>
-              <li>تسجيل الجلسات</li>
-              <li>ملفات مجانية</li>
-              <li>جلسة دعم فردية كل أسبوع للتحدث والاستماع</li>
+              <li>2 sessions per week</li>
+              <li>3 club sessions per week ("Writing, and Film")</li>
+              <li>Daily Speaking Club</li>
+              <li>3 Evalutions per month (Full IELTS Exam)</li>
+              <li>Session Reports</li>
+              <li>Homework and Evalutions correction</li>
+              <li>Recorded Session</li>
+              <li>Free Resourses</li>
+              <li>One to One support session per week for speaking and listening</li>
             </ul>
-            <button @click="addToCart(prices[28]?.packageId)">شراء</button>
+            <button @click="addToCart(prices[28]?.packageId)">Buy</button>
           </div>
         </div>
 
         <div class="package-card">
           <div class="card-header">
-            <h3>
-              <span> (4 شهور)</span>
-              <br>
-              المعايشة</h3>
+            <h3><span> (4 Months) </span>
+            <br> Immersion</h3>
           </div>
-          <div class="card-body">
-            <p>تقدم عددًا أكبر من جلسات النادي والتقييمات مقارنة بالأساسية.</p>
-            <h2>
-              {{ prices[29]?.price }}
-                            <span class="sloped-line">{{ prices[29]?.beforePrice }}</span> 
 
+          <div class="card-body">
+            <p>Offers more club sessions and assessments compared to the basic package.</p>
+            <h2>{{ prices[29]?.price }}
+              <span class="sloped-line">{{ prices[29]?.beforePrice }}</span> 
             </h2>
-            <h6>واستمتع بالاتي:</h6>
+            
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>جلستان كل أسبوع</li>
-              <li>جلستان نادي كل أسبوع ("التحدث، الكتابة")</li>
-              <li>تقييم واحد كل شهر (اختبار IELTS كامل)</li>
-              <li>تقارير الجلسات</li>
-              <li>تصحيح الواجبات والتقييم</li>
-              <li>تسجيل الجلسات</li>
-              <li>ملفات مجانية</li>
+              <li>2 sessions per week</li>
+              <li>2 club sessions per week ("Speaking, Writing")</li>
+              <li>2 Evaluations per month (Full IELTS test)</li>
+              <li>Session Reports</li>
+              <li>Homework and Evaluations correction</li>
+              <li>Recorded Session</li>
+              <li>Free Resourses</li>
             </ul>
-            <button @click="addToCart(prices[29]?.packageId)">شراء</button>
+            <button @click="addToCart(prices[29]?.packageId)">Buy</button>
           </div>
         </div>
 
         <div class="package-card">
           <div class="card-header">
-            <h3>
-              <span> (4 شهور)</span>
-              <br>
-              أساسية</h3>
+            <h3><span> (4 Months) </span>
+            <br> Basic</h3>
           </div>
+
           <div class="card-body">
-            <p>الحد الأدنى من الدعم مع جلستين أسبوعيًا وجلسة نادي واحدة وتقييم شهري.</p>
+            <p>The minimum support with two sessions per week, one club session, and one monthly assessment.</p>
             <h2>{{ prices[30]?.price }}
               <span class="sloped-line">{{ prices[30]?.beforePrice }}</span> 
             </h2>
-          
-            <h6>واستمتع بالاتي:</h6>
+            
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>جلستان كل أسبوع</li>
-              <li>جلسة نادي كل أسبوع ("فيلم")</li>
-              <li>تقييم واحد كل شهر (اختبار IELTS كامل)</li>
-              <li>تقارير الجلسات</li>
-              <li>تصحيح الواجبات والتقييم</li>
-              <li>تسجيل الجلسات</li>
-              <li>ملفات مجانية</li>
+              <li>2 sessions per week</li>
+              <li>Club session per week ("Film")</li>
+              <li>Evaluation per month (full IELTS test)</li>
+              <li>Session Reports</li>
+              <li>Homework and Evaluation correction</li>
+              <li>Recorded Session</li>
+              <li>Free Resourses</li>
             </ul>
-            <button @click="addToCart(prices[30]?.packageId)">شراء</button>
+            <button @click="addToCart(prices[30]?.packageId)">Buy</button>
           </div>
         </div>
-      </div>
+        </div>
     </div>
   </div>
 </template>
@@ -372,6 +375,7 @@ input:not(:checked) ~ .slider .label-right {
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    direction: ltr;
 }
 .packages-title-n {
     text-align: center;
@@ -513,7 +517,7 @@ input:not(:checked) ~ .slider .label-right {
 }
 .card-body li {
     position: relative;
-    padding-right: 20px;
+    padding-left: 20px;
     margin-bottom: 10px;
     color: #666;
     border-bottom: 1px solid #e9e9e9;
@@ -525,7 +529,7 @@ input:not(:checked) ~ .slider .label-right {
 .card-body li::before {
     content: '✓';
     position: absolute;
-    right: 0;
+    left: 0;
     color: #f48026;
     font-weight: bold;
 }

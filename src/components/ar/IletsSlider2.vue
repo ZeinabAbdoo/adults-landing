@@ -10,10 +10,7 @@
     >
       <Slide v-for="club in clubs" :key="club.id">
         <div class="kids-card">
-          <div class="kids-card-content">
-            <p class="kids-card-description" v-html="club.description"></p>
-            <h3 class="kids-card-title">{{ club.title }}</h3>
-          </div>
+          <img :src="club.image" alt="" class="kids-card-image" />
         </div>
       </Slide>
     </Carousel>
@@ -41,16 +38,16 @@ export default {
     const currentSlide = ref(0);
     const itemsToShow = ref(4);
     const clubs = ref([
-      { id: 1, title: 'ساعتين و45 دقيقة.', description: 'مدة الاختبار' },
-      { id: 2, title: 'يمكن بشكل ورقي أو أونلاين.', description: 'إجراء الاختبار' },
-      { id: 3, title: 'Academic (للدراسة والهجرة) وGeneral (للعمل في الشركات الأجنبية).', description: 'نوعا الاختبار' },
-      { id: 4, title: 'الاستماع، التحدث، القراءة، الكتابة.', description: 'يختبر المهارات الأربعة' },
-      { id: 5, title: 'تتراوح بين 5 و 9.', description: 'الدرجة المطلوبة' },
-      { id: 6, title: '250 دولار.', description: 'رسوم الاختبار' },
-      { id: 7, title: 'سنتين فقط.', description: 'صلاحية الشهادة' },
-      { id: 8, title: '3 جهات رئيسية', description: 'اختبار دولي يُقدمه' }
+      { id: 1, image: require('@/assets/images/ilets/ar/1.png') },
+      { id: 2, image: require('@/assets/images/ilets/ar/2.png') },
+      { id: 3, image: require('@/assets/images/ilets/ar/3.png') },
+      { id: 4, image: require('@/assets/images/ilets/ar/4.png') },
+      { id: 5, image: require('@/assets/images/ilets/ar/5.png') },
+      { id: 6, image: require('@/assets/images/ilets/ar/6.png') },
+      { id: 7, image: require('@/assets/images/ilets/ar/7.png') },
+      { id: 8, image: require('@/assets/images/ilets/ar/8.png') },
     ]);
-    
+
     let autoplayInterval = null; 
 
     const updateItemsToShow = () => {
@@ -96,42 +93,24 @@ export default {
   width: 100%;
   margin: 0 auto;
   direction: rtl;
-  padding: 2% 0 1% 0; 
 }
 .carousel {
   position: relative; 
 }
 .kids-card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius: 1em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-  font-family: 'DIN Next LT Arabic', sans-serif;
-  font-weight: 500;
-  width: 90%; 
-  height: 200px; 
-  background: linear-gradient(111.84deg, #2C80AC 0%, #165E84 100%);
-  color: #ffffff;
-  transition: transform 0.3s; 
-  direction: rtl;
-}
-.kids-card-content {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  margin: auto;
+  align-items: center;
+  border-radius: 1em;
+  width: 100%; 
+  height: 300px; 
+  color: #165E84;
+  transition: transform 0.3s; 
 }
-.kids-card-title {
-  font-size: 26px; 
-  margin-bottom: 0.5rem;
-}
-.kids-card-description {
-  font-size: 22px;
-  color: #ffffff;
-  font-family: 'DIN Next LT Arabic-n';
-  font-weight: 300;
+.kids-card-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 1em;
 }
 .pagination {
   display: flex;
@@ -145,7 +124,7 @@ export default {
   background-color: #e0e0e0;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.3s; /* Smooth background color change */
+  transition: background-color 0.3s; 
 }
 .pagination button:hover {
   background-color: #d5d5d5; 

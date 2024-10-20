@@ -4,21 +4,21 @@
         <button class="close-button" @click="closePopup2" :disabled="loading">&times;</button>
         <div class="popup-body">
           <div class="popup-text">
-            <h2>سجل الآن!</h2>
-            <h1>واستمتع بخصم 50%</h1>
+            <h2>Register now!</h2>
+            <h1>Enjoy discount 50%</h1>
             <div class="pop-card">
-              <p>علي جميع باقات المعايشة</p>
+              <p>On Immersion packages</p>
             </div>
-            <p class="pop-desc">واحصل علي حصة تجريبية مجانية ! لفترة محدودة</p>
+            <p class="pop-desc">And get a free trial! For a limited time</p>
             <form @submit.prevent="register" class="pop-form" :class="{ 'form-disabled': loading }">
               <div class="inline-group">
                 <div class="form-pop">
-                  <label for="fullName" class="pop-label">الاسم الكامل</label>
-                  <input type="text" class="pop-input" id="fullName" placeholder="الاسم الكامل" v-model="fullName" 
+                  <label for="fullName" class="pop-label">Full Name</label>
+                  <input type="text" class="pop-input" id="fullName" placeholder="Full Name" v-model="fullName" 
                     required :disabled="loading" />
                 </div>
                 <div class="form-pop">
-                  <label for="phoneNumber" class="pop-label">رقم الهاتف</label>
+                  <label for="phoneNumber" class="pop-label">Phone Number</label>
                   <vue-tel-input 
                     class="pop-input" 
                     v-model:phoneNumber="phoneNumber" 
@@ -29,24 +29,24 @@
                     :preferred-countries="['SA', 'KW', 'AE', 'QA', 'EG', 'JO', 'OM', 'YE', 'BH', 'IQ']" 
                     defaultCountry="SA" 
                     :inputOptions="inputOptions" 
-                    :inputprops="{ name: 'phoneNumber', id: 'phoneNumber', required: true, placeholder: 'رقم الهاتف' }" 
+                    :inputprops="{ name: 'phoneNumber', id: 'phoneNumber', required: true, placeholder: 'Phone Number' }" 
                     :disabled="loading" 
                   />
                 </div>
               </div>
               <div class="form-pop">
-                <label for="email" class="pop-label">البريد الإلكتروني</label>
+                <label for="email" class="pop-label">Email</label>
                 <input type="email" class="pop-input" id="email" placeholder="example@email.com" v-model="email" 
                   required :disabled="loading" />
               </div>
               <input type="hidden" v-model="fullPhoneNumber" />
-              <button type="submit" class="pop-btn" :disabled="loading">سجل</button>
+              <button type="submit" class="pop-btn" :disabled="loading">Register</button>
             </form>
             <div v-if="loading" class="spinner-overlay">
               <div class="spinner"></div>
             </div>
-            <p class="pop-bottom">يتم الاحتفاظ بالتفاصيل الشخصية من قبل أكاديمية مونجلش الدولية ولن يتم استخدامها إلا فيما يتعلق بطلبك. يرجى قراءة 
-              <a href="/ar/terms-and-conditions">شروط الاستخدام</a> لمزيد من المعلومات.</p>
+            <p class="pop-bottom">Personal details are kept by monglish_frontend and will only be used in connection with your application. Please read 
+              <a href="/ar/terms-and-conditions">our terms of use</a> for more information.</p>
           </div>
           <div class="popup-image"></div>
         </div>
@@ -159,9 +159,9 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    direction: rtl;
     font-family: 'DIN Next LT Arabic-n', sans-serif;
     overflow: auto;
+    direction: ltr;
   }
 
   .popup-content {
@@ -205,7 +205,7 @@
   .pop-card {
     background: linear-gradient(45deg, #ff9442, #ff6f00);
     color: white;
-    border-radius: 25px 0 0 25px;
+    border-radius: 0 25px 25px 0;
     margin-inline-start: -30px;
     padding-inline-start: 30px;
     margin-top: 10px;
@@ -228,10 +228,10 @@
 
   .popup-image {
     flex: 1;
-    background-image: url('@/assets/images/poup2-ar.jpeg');
+    background-image: url('@/assets/images/popup2-en.jpeg');
     background-size: cover;
     background-position: top center;
-    border-radius: 20px 0 0 20px;
+    border-radius: 0 20px 20px 0;
     padding: 3.75em;
     width: 100%;
   }
@@ -253,8 +253,8 @@
   }
 
   .pop-form {
-    text-align: right;
-    direction: rtl;
+    text-align: left;
+    direction: ltr;
   }
 
   .pop-input {
@@ -273,7 +273,7 @@
   .pop-label {
     display: block;
     margin-right: 0.75em;
-    text-align: right;
+    text-align: left;
     font-weight: 500;
     color: #bababa;
     margin-top: 0;

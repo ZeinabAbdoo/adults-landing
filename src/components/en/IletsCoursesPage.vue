@@ -1,145 +1,165 @@
 <template>
   <PopUp />
+
   <div style="background-color: #fff;">
     <div class="ilets-sec1">
       <div class="sec1-content">
         <picture>
-          <source media="(max-width: 768px)" srcset="@/assets/images/ilets/content1ar-mob.png">
-          <img src="@/assets/images/ilets/content1ar.png" alt="Description" />
+          <source media="(max-width: 768px)" srcset="@/assets/images/ilets/content1en.png">
+          <img src="@/assets/images/ilets/content1en.png" alt="Description" />
         </picture>
         <button @click="sendMessage" id="ilets-prep-btn">
-          ابدأ رحلة التحضير الآن
+        Start your preparation journey now        
         </button>
       </div>
     </div>
     
     <div class="ilets-sec3">
-      <h2>ما هو اختبار IELTS؟ </h2>
-      <h1>كل ما تحتاج معرفته عن اختبار IELTS</h1>
+      <h2>What is the IELTS test?</h2>
+      <h1>Everything You Need to Know About the IELTS Test</h1>
       <IletsSlider />
     </div>
 
-    <div class="ilets-sec5">
-      <div class="founder-info">
-        <h1>كيف نقوم بإعدادك لاختبار IELTS؟</h1>
-        <p>
-          في أكاديمية مونجلش، نقدم لك أفضل برنامج تحضيري لاختبار IELTS الذي يجعلك على أتم الاستعداد لتحقيق أعلى الدرجات والوصول إلى طموحاتك الأكاديمية والمهنية.        
-        </p>
-        <h3>
-          دعنا نساعدك في تحقيق حلمك بالنجاح في اختبار IELTS!
-        </h3>
-        <button @click="sendMessage" id="ilets-prep-btn">
-        انضم إلينا الآن       
-        </button>
-      </div>
-      <div class="founder2-images">
+<div class="ilets-sec5">
+  <div class="founder-info">
+    <h1>How do we prepare you for the IELTS test?</h1>
+    <p>
+      At Monglish Academy, we offer you the best preparatory program for the IELTS test that fully equips you to achieve the highest scores and reach your academic and professional aspirations.        
+    </p>
+    <h3>
+      Let us help you achieve your dream of success in the IELTS test!
+    </h3>
+    <button @click="sendMessage" id="ilets-prep-btn">
+      Join us now       
+    </button>
+  </div>
+    <div class="founder2-images">
       <IletsSlider2 />
-       </div>
-    </div>
+  </div>
+</div>
 
 <div class="kids-sec9">
-    <div class="kids-sec9-content">
-      <div class="kids-sec9-text">
-        <h3>مميزات برنامج التحضير</h3>
-        <h2>لاخــــــــــــــتبار IELTS في الأكاديمية</h2>
-        <p>نحن نحرص على تقديم أفضل تجربة تعليمية لضمان تفوقك في اختبار الـ IELTS، لذلك نقدم لك مجموعة من المميزات الحصرية التي تشمل:</p>
-<div @click="toggleDescription2(1)" class="kids-sec9-title" :class="{ active: activeDescription === 1 }">
-  <span>01. ضمان الحصول على +7 في الـ IELTS:</span>
-  <span class="caret">
-    <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18 13.75L11 20.75M11 20.75L18 27.75M11 20.75L29 20.75" stroke="url(#paint0_linear_134_3907)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="20" cy="20" r="19.5" transform="matrix(-1 0 0 1 40 0.75)" stroke="#FF994A"/>
-      <defs>
-        <linearGradient id="paint0_linear_134_3907" x1="10.7783" y1="27.6071" x2="30.0534" y2="15.1832" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#F47D21"/>
-          <stop offset="1" stop-color="#FF9D52"/>
-          <stop offset="1" stop-color="#FF9D52"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </span>
-</div>
-<p v-if="activeDescription === 1">نضمن لك الحصول على درجة +7 أو أعلى بفضل طرق التحضير المبتكرة والدعم الكامل من معلمينا.</p>
-
-<div @click="toggleDescription2(2)" class="kids-sec9-title" :class="{ active: activeDescription === 2 }">
-  <span>02. تقييم مستواك بشكل دوري</span>
-  <span class="caret">
-    <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18 13.75L11 20.75M11 20.75L18 27.75M11 20.75L29 20.75" stroke="url(#paint0_linear_134_3907)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="20" cy="20" r="19.5" transform="matrix(-1 0 0 1 40 0.75)" stroke="#FF994A"/>
-      <defs>
-        <linearGradient id="paint0_linear_134_3907" x1="10.7783" y1="27.6071" x2="30.0534" y2="15.1832" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#F47D21"/>
-          <stop offset="1" stop-color="#FF9D52"/>
-          <stop offset="1" stop-color="#FF9D52"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </span>
-</div>
-<p v-if="activeDescription === 2">يتم تقييم مستواك بشكل دوري وتقديم نصائح فردية لتحسين أدائك باستمرار.</p>
-
-<div @click="toggleDescription2(3)" class="kids-sec9-title" :class="{ active: activeDescription === 3 }">
-  <span>03. مصادر تعليمية مجانية</span>
-  <span class="caret">
-    <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18 13.75L11 20.75M11 20.75L18 27.75M11 20.75L29 20.75" stroke="url(#paint0_linear_134_3907)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="20" cy="20" r="19.5" transform="matrix(-1 0 0 1 40 0.75)" stroke="#FF994A"/>
-      <defs>
-        <linearGradient id="paint0_linear_134_3907" x1="10.7783" y1="27.6071" x2="30.0534" y2="15.1832" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#F47D21"/>
-          <stop offset="1" stop-color="#FF9D52"/>
-          <stop offset="1" stop-color="#FF9D52"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </span>
-</div>
-<p v-if="activeDescription === 3">استمتع بمجموعة من الموارد التعليمية المجانية التي تساعدك على التدرب بشكل فعال وتحقيق أفضل النتائج.</p>
-
-<div @click="toggleDescription2(4)" class="kids-sec9-title" :class="{ active: activeDescription === 4 }">
-  <span>04. محاكاة حقيقية للاختبار</span>
-  <span class="caret">
-    <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18 13.75L11 20.75M11 20.75L18 27.75M11 20.75L29 20.75" stroke="url(#paint0_linear_134_3907)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="20" cy="20" r="19.5" transform="matrix(-1 0 0 1 40 0.75)" stroke="#FF994A"/>
-      <defs>
-        <linearGradient id="paint0_linear_134_3907" x1="10.7783" y1="27.6071" x2="30.0534" y2="15.1832" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#F47D21"/>
-          <stop offset="1" stop-color="#FF9D52"/>
-          <stop offset="1" stop-color="#FF9D52"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </span>
-</div>
-<p v-if="activeDescription === 4">نعمل على تقديم جلسات محاكاة فعلية لاختبار IELTS لضمان جاهزيتك الكاملة للامتحان.</p>
+  <div class="kids-sec9-content">
+    <div class="kids-sec9-text">
+      <h3>Features of the Preparation Program</h3>
+      <h2>For the IELTS Exam at the Academy</h2>
+      <p>We strive to provide the best educational experience to ensure your success in the IELTS exam, which is why we offer you a range of exclusive features, including:</p>
+      
+      <div @click="toggleDescription2(1)" class="kids-sec9-title" :class="{ active: activeDescription === 1 }">
+        <span>01. Guarantee of achieving +7 in the IELTS:</span>
+        <span class="caret">
+          <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 13.75L11 20.75M11 20.75L18 27.75M11 20.75L29 20.75" stroke="url(#paint0_linear_134_3907)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="20" r="19.5" transform="matrix(-1 0 0 1 40 0.75)" stroke="#FF994A"/>
+            <defs>
+              <linearGradient id="paint0_linear_134_3907" x1="10.7783" y1="27.6071" x2="30.0534" y2="15.1832" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F47D21"/>
+                <stop offset="1" stop-color="#FF9D52"/>
+                <stop offset="1" stop-color="#FF9D52"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
       </div>
+      <p v-if="activeDescription === 1">We guarantee that you will achieve a score of +7 or higher thanks to innovative preparation methods and full support from our teachers.</p>
 
-
-      <div class="kids-sec9-images">
-        <img src="@/assets/images/ilets/sec3.png">
+      <div @click="toggleDescription2(2)" class="kids-sec9-title" :class="{ active: activeDescription === 2 }">
+        <span>02. Regular assessment of your level</span>
+        <span class="caret">
+          <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 13.75L11 20.75M11 20.75L18 27.75M11 20.75L29 20.75" stroke="url(#paint0_linear_134_3907)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="20" r="19.5" transform="matrix(-1 0 0 1 40 0.75)" stroke="#FF994A"/>
+            <defs>
+              <linearGradient id="paint0_linear_134_3907" x1="10.7783" y1="27.6071" x2="30.0534" y2="15.1832" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F47D21"/>
+                <stop offset="1" stop-color="#FF9D52"/>
+                <stop offset="1" stop-color="#FF9D52"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
       </div>
+      <p v-if="activeDescription === 2">Your level will be assessed regularly with personalized advice to continuously improve your performance.</p>
+
+      <div @click="toggleDescription2(3)" class="kids-sec9-title" :class="{ active: activeDescription === 3 }">
+        <span>03. Free educational resources</span>
+        <span class="caret">
+          <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 13.75L11 20.75M11 20.75L18 27.75M11 20.75L29 20.75" stroke="url(#paint0_linear_134_3907)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="20" r="19.5" transform="matrix(-1 0 0 1 40 0.75)" stroke="#FF994A"/>
+            <defs>
+              <linearGradient id="paint0_linear_134_3907" x1="10.7783" y1="27.6071" x2="30.0534" y2="15.1832" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F47D21"/>
+                <stop offset="1" stop-color="#FF9D52"/>
+                <stop offset="1" stop-color="#FF9D52"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+      </div>
+      <p v-if="activeDescription === 3">Enjoy a range of free educational resources that help you practice effectively and achieve the best results.</p>
+
+      <div @click="toggleDescription2(4)" class="kids-sec9-title" :class="{ active: activeDescription === 4 }">
+        <span>04. Real test simulations</span>
+        <span class="caret">
+          <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 13.75L11 20.75M11 20.75L18 27.75M11 20.75L29 20.75" stroke="url(#paint0_linear_134_3907)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="20" r="19.5" transform="matrix(-1 0 0 1 40 0.75)" stroke="#FF994A"/>
+            <defs>
+              <linearGradient id="paint0_linear_134_3907" x1="10.7783" y1="27.6071" x2="30.0534" y2="15.1832" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#F47D21"/>
+                <stop offset="1" stop-color="#FF9D52"/>
+                <stop offset="1" stop-color="#FF9D52"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+      </div>
+      <p v-if="activeDescription === 4">We provide real simulation sessions for the IELTS test to ensure your complete readiness for the exam.</p>
+    </div>
+
+    <div class="kids-sec9-images">
+      <img src="@/assets/images/ilets/sec3.png" alt="IELTS Preparation">
     </div>
   </div>
+</div>
 
 <div class="background-div">
-  <button class="start-btn" @click="sendMessage" id="whatsapp-ilets-btn">ابدأ الآن</button>
+  <h3>Immersion Clubs</h3>
+  <h1>The ideal way to ensure excellence.</h1>
+  <p>Our preparatory program is not limited to theoretical lessons only; we offer you:</p>
+  <p class="bold">Book your seat in the IELTS preparation program!</p>
+  <button class="start-btn" @click="sendMessage" id="whatsapp-ilets-btn">Start Now</button>
+  
+  <div class="columns-wrapper">  
+    <div class="column-div">  
+      <img src="@/assets/images/ilets/sec5-1.png">
+      <h3>Immersion Clubs</h3>
+      <p>Give you the opportunity to practice English through daily interactive sessions that help you improve your pronunciation and develop your skills in a fun and effective way.</p>
+    </div>
+  
+    <div class="divider"></div> 
+
+    <div class="column-div">  
+      <img src="@/assets/images/ilets/sec5-2.png">
+      <h3>Best Quality at the Lowest Price</h3>
+      <p>With all these amazing features, we offer you the best IELTS preparatory experience at the lowest possible price.</p>
+    </div>
+  </div>
 </div>
 
     <PackagesIlets />
 
     <div class="ilets-sec5">
       <div class="founder-info">
-        <h3>تواصل فعّال لتقديم</h3>
         <h1>
-         أفضل تجربة لعملائنا
+         Effective communication to provide the best experience for our customers
         </h1>
-        <p>ماذا يقول طلابنا عن برامج التحضير لاختبار IELTS في مونجلش؟</p>
+        <p>What do our students say about the IELTS preparation programs at Monglish?</p>
       </div>
 
       <div class="founder2-images">
-        <img src="@/assets/images/ilets/list.png">
+        <img src="@/assets/images/ilets/list2.png">
       </div>
     </div>
 
@@ -147,9 +167,9 @@
 
     <div class="full-section">
       <div class="Last-section">
-        <h1>مازلت تحتاج للمساعدة ؟</h1>
-        <p>يسعدنا استقبال رسائلكم والرد على جميع استفساراتكم.</p>
-        <a href="https://www.monglish.co.uk/ar/contact" class="contact-btn">تواصل معنا</a>
+        <h1>Do you still need help?</h1>
+        <p>We are happy to receive your messages and respond to all your inquiries.</p>
+        <a href="https://www.monglish.co.uk/ar/contact" class="contact-btn">Contact us</a>
       </div>
     </div>
 
@@ -158,16 +178,17 @@
     <div class="full-section-2">
       <div class="inner-section">
         <h1>
-          ابدأ رحلتك نحو التفوق في اختبار IELTS
-          <br>
+            Start your journey towards excelling in the IELTS test          
+            <br>
           <span>
-            مع مونجلش الآن!
-          </span>
+            With Monglish now!          
+            </span>
         </h1>
         <p>
-          لا تضيع المزيد من الوقت! انضم لبرنامج التحضير الاحترافي لاختبار IELTS واستفد من الدعم الكامل والموارد المتقدمة. احجز مكانك اليوم لتحصل على أفضل تجربة تعليمية تضمن لك النجاح والتفوق.
+            Don't waste any more time! Join the professional IELTS preparation program and benefit from full support and advanced resources. Reserve your spot today to get the best educational experience that guarantees your success and excellence.
         </p>
-        <button @click="sendMessage" id="ilets-btn">إشترك معنا الأن
+        <button @click="sendMessage" id="ilets-btn">
+            Sign Up Now
           <i class="fab fa-whatsapp"></i>
         </button>
       </div>
@@ -176,12 +197,12 @@
 </template>
 
 <script>
-import IletsSlider from '../../components/ar/IletsSlider.vue';
-import IletsSlider2 from '../../components/ar/IletsSlider2.vue';
-import PackagesIlets from '../../components/ar/PackagesIlets.vue';
-import ViewIlets from '../../components/ar/ViewIlets';
-import FormSection2 from '../../components/ar/FormSection2.vue';
-import PopUp from '../../components/ar/PopUp2.vue';
+import IletsSlider from '../../components/en/IletsSlider.vue';
+import IletsSlider2 from '../../components/en/IletsSlider2.vue';
+import PackagesIlets from '../../components/en/PackagesIlets.vue';
+import ViewIlets from '../../components/en/ViewIlets.vue';
+import FormSection2 from '../../components/en/FormSection2.vue';
+import PopUp from '../../components/en/PopUp2.vue';
 
 export default {
   name: "IletsCourses",
@@ -221,18 +242,20 @@ export default {
     }
   }
 }
+
+
 </script>
 
 <style scoped>
 .ilets-sec1 {
-  background-image: url('@/assets/images/ilets/bg1-1.png');
+  background-image: url('@/assets/images/ilets/bg1-en.png');
   background-size: cover;
   background-position: center;
   position: relative;
   text-align: right;
   padding: 0;
-  height: 110vh;
-  direction: rtl;
+  height: 120vh;
+  direction: ltr;
   margin-top: -85px;
   z-index: 1;
 }
@@ -257,14 +280,13 @@ export default {
     margin-top: -100px;
   }
 }
-
 .sec1-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 8% 3% 8% 3%;
 }
-.ilets-sec1 button {
+.ilets-sec1 button , .ilets-sec5 button{
   width: 100%;
   max-width: 25%;
   padding: 0.5rem 0.25rem;
@@ -293,7 +315,7 @@ export default {
   font-family: 'DIN Next LT Arabic';
   font-weight: 500;
   text-align: center;
-  direction: rtl;
+  direction: ltr;
   background-color: #fff;
   padding: 2%;
 }
@@ -322,19 +344,20 @@ export default {
   font-family: 'DIN Next LT Arabic', sans-serif;
   color: white;
   display: flex;
-  padding: 5% 1%; 
+  padding: 2%; 
   position: relative;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  direction: rtl;
-  text-align: right; 
+  direction: ltr;
+  text-align: left; 
 }
 .founder2-images {
   flex: 1; 
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 60%;
 }
 .founder2-images img {
   max-width: 100%;
@@ -342,14 +365,8 @@ export default {
 }
 .founder-info {
   flex: 1.5; 
-  max-width: 50%;
+  max-width: 40%;
   padding-right: 3%;
-}
-.founder-info h3 {
-  font-size: 1.9rem;
-  margin-bottom: 20px;
-  font-weight: 500;
-  text-transform: uppercase; 
 }
 .founder-info h1 {
   font-size: 3rem;
@@ -364,14 +381,6 @@ export default {
   font-weight: 500;
   margin-bottom: 20px;
   line-height: 1.2;
-}
-.founder-info ol {
-  padding: 0;
-  list-style-position: inside; 
-}
-.founder-info ol li {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
 }
 @media (max-width: 1200px) {
   .ilets-sec5 {
@@ -394,8 +403,11 @@ export default {
   .founder-info p {
     font-size: 1rem;
   }
+  .founder2-images {
+    max-width: 100%; 
+  }
   .founder2-images img {
-    max-width: 80%; 
+    max-width: 100%; 
   }
 }
 @media (max-width: 480px) {
@@ -419,7 +431,8 @@ export default {
 
 .full-section{
     background-color: #fff;
-  padding: 2% 6% 1% 6%;
+    padding: 2% 6% 1% 6%;
+    direction: ltr;
 }
 .Last-section h1 {
   font-size: 40px;
@@ -431,8 +444,8 @@ export default {
   width: 100%;
   background-color: #eee;
   border-radius: 15px;
-  direction: rtl;
-  text-align: right;
+  direction: ltr;
+  text-align: left;
   position: relative;
   padding: 20px;
   margin: 20px auto;
@@ -445,7 +458,7 @@ export default {
 }
 .contact-btn {
   display: inline-block;
-  background: linear-gradient(111.84deg, #2C80AC 0%, #165E84 100%);
+  background: linear-gradient(45deg, #fe9b4f, #f47e23);
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
@@ -455,7 +468,7 @@ export default {
   font-size: 20px;
   font-weight: 500;
   position: absolute;
-  left: 20px; 
+  right: 20px; 
   bottom: 20px;
 }
 @media (max-width: 768px) {
@@ -479,6 +492,7 @@ export default {
     left: auto;  /* Reset right position */
     bottom: auto;  /* Reset bottom position */
     margin-top: 10px;  /* Add margin for spacing */
+    right: 0; 
   }
 }
 
@@ -495,6 +509,7 @@ export default {
   padding: 2% 5%;
   color: #000;
   text-align: center;
+  direction: ltr;
 }
 .inner-section h1 {
   color: #000;
@@ -516,7 +531,7 @@ export default {
   font-weight: 500;
   margin-bottom: 20px;
   line-height: 1.5;
-  padding: 0 20%;
+  padding: 0 10%;
   color: #343434;
 }
 .inner-section button {
@@ -585,11 +600,38 @@ export default {
 .background-div {
   width: 100%;
   height: 500px;
-  background-image: url('@/assets/images/ilets/sec5.png');
+  background-image: url('@/assets/images/ilets/sec5.jpg'); 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; 
+  padding: 20px;
+  text-align: left; 
+  font-family: 'DIN Next LT Arabic';
+  font-weight: 500;
+  direction: ltr;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+.bold {
+  font-size: 1.3rem;
 }
 
 .start-btn {
@@ -604,23 +646,61 @@ export default {
   font-size: 1.2rem;
   font-family: 'DIN Next LT Arabic';
   font-weight: 500;
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
+  margin: 1% 0;
 }
 
+/* Columns layout */
+.columns-wrapper {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.column-div {
+  width: 48%; /* Each column takes 48% width */
+}
+
+.divider {
+  width: 1px;
+  height: 100%;
+  background-color: white; /* White line between the columns */
+  margin: 0 2%; /* Small space between columns */
+}
+
+/* Mobile View */
 @media (max-width: 768px) {
   .background-div {
-    height: 840px;
-    background-image: url('@/assets/images/ilets/sec5-mob.png');
+    height: 950px;
+    background-image: url('@/assets/images/ilets/sec5-mobb.png'); /* Mobile background for English version */
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .columns-wrapper {
+    flex-direction: column; /* Stack columns in mobile view */
+  }
+
+  .column-div {
+    width: 100%;
+  }
+
+  .divider {
+    display: none; /* Hide the divider in mobile view */
   }
 
   .start-btn {
     max-width: 60%;
-    bottom: 60%; 
-    right: 0;
-    left: 0;
-    margin: 0 auto; 
+    margin: 0 auto; /* Center the button */
   }
 }
 
@@ -634,6 +714,8 @@ export default {
   font-weight: 500;
   color: #4e5354;
   position: relative;
+  direction: ltr;
+  text-align: left;
 }
 .kids-sec9-content {
   display: flex;
@@ -656,10 +738,12 @@ export default {
   font-weight: 700;
   margin-bottom: 1rem;
   color: #165e84;
+    text-align: left;
   font-family: 'DIN Next LT Arabic-n';
 }
 .kids-sec9-text h3 {
   font-size: 2rem;
+    text-align: left;
 }
 .kids-sec9-text .kids-sec9-title {
   font-size: 1.3rem;
@@ -692,6 +776,7 @@ export default {
   font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.6;
+  text-align: left;
 }
 @media (min-width: 768px) {
   .kids-sec9-content {

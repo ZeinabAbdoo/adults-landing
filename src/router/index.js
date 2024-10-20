@@ -3,9 +3,11 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeEn from '../components/en/AdultsLanding.vue';
 import HomeAr from '../components/ar/AdultsLanding.vue';
 import IletsAr from '../components/ar/IletsCoursesPage.vue';
+import IletsEn from '../components/en/IletsCoursesPage.vue';
 
 const englishRoutes = [
   { path: '/en', name: 'HomeEn', component: HomeEn },
+  { path: '/en/ilets', name: 'IletsEn', component: IletsEn },
 ];
 
 const arabicRoutes = [

@@ -2,19 +2,19 @@
   <div class="form-section">
     <div class="content-container">
       <div class="text-container">
-        <h1>سجل بياناتك</h1>
+        <h1>Enter your details</h1>
         <p>
-          احجز مقعدك اليوم وانضم إلى الآلاف من الطلاب الذين حققوا نجاحات باهرة من خلال برامجنا التفاعلية والمعتمدة دوليًا. مع دعم كامل ومصادر تعليمية متقدمة، سنكون معك في كل خطوة لتحقيق أهدافك اللغوية. لا تفوت الفرصة!
-        </p>
+            Reserve your seat today and join thousands of students who have achieved remarkable success through our interactive, internationally accredited programs. With full support and advanced educational resources, we will be with you every step of the way to achieve your language goals. Don’t miss the opportunity!        
+            </p>
       </div>
       <form @submit.prevent="register" class="pop-form">
         <div class="inline-group">
           <div class="form-pop">
-            <label for="fullName" class="pop-label">الاسم الكامل</label>
-            <input type="text" class="pop-input" id="fullName" placeholder="الاسم الكامل" v-model="fullName" required />
+            <label for="fullName" class="pop-label">Full Name</label>
+            <input type="text" class="pop-input" id="fullName" placeholder="Full Name" v-model="fullName" required />
           </div>
           <div class="form-pop">
-            <label for="phoneNumber" class="pop-label">كود الدولة متبوعا برقم الواتس أب</label>
+            <label for="phoneNumber" class="pop-label">Country code followed by WhatsApp number</label>
             <vue-tel-input 
                 class="pop-input" 
                 style="direction:ltr; color:black;"
@@ -26,18 +26,18 @@
                 :preferred-countries="['SA', 'KW', 'AE', 'QA', 'EG', 'JO', 'OM', 'YE', 'BH', 'IQ']" 
                 defaultCountry="SA" 
                 :inputOptions="inputOptions" 
-                :inputprops="{ name: 'phoneNumber', id: 'phoneNumber', required: true, placeholder: 'رقم الهاتف' }" 
+                :inputprops="{ name: 'phoneNumber', id: 'phoneNumber', required: true, placeholder: 'Phone number' }" 
                 :disabled="loading" 
             />
           </div>
         </div>
         <div class="form-pop">
-          <label for="email" class="pop-label">البريد الإلكتروني</label>
+          <label for="email" class="pop-label">Email</label>
           <input type="email" class="pop-input" id="email" placeholder="example@email.com" v-model="email" required />
         </div>
         <input type="hidden" v-model="fullPhoneNumber" />
         <input type="hidden" v-model="countryCode" />
-        <button type="submit" class="pop-btn">اشترك الآن</button>
+        <button type="submit" class="pop-btn">Sign Up Now</button>
       <div v-if="successMessage" class="success-message">{{ successMessage }}</div>
       </form>
     </div>
@@ -101,7 +101,7 @@ export default {
           const data = response.data;
           if (response.status === 201) {
             console.log('Form submitted successfully:', data);
-            this.successMessage = 'تم التسجيل بنجاح!'; 
+            this.successMessage = 'Form submitted successfully!'; 
             this.fullName = '';
             this.email = '';
             this.phoneNumber = '';
@@ -127,8 +127,8 @@ export default {
   background-image: url('@/assets/images/form.png');
   background-size: cover;
   background-position: center;
-  direction: rtl;
-  text-align: right;
+  direction: ltr;
+  text-align: left;
   color: #fff;
   font-family: 'DIN Next LT Arabic';
   font-weight: 500;
@@ -173,8 +173,8 @@ export default {
 }
 
 .pop-form {
-  text-align: right;
-  direction: rtl;
+  direction: ltr;
+  text-align: left;
   width: 50%;
 }
 
@@ -202,7 +202,7 @@ form .form-pop {
 .pop-label {
   display: block;
   margin-right: 0.75em;
-  text-align: right;
+  text-align: left;
   font-weight: 500;
   color: #bababa;
   margin-bottom: 5px;

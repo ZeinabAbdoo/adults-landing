@@ -41,14 +41,14 @@ export default {
     const currentSlide = ref(0);
     const itemsToShow = ref(4);
     const clubs = ref([
-      { id: 1, title: 'ساعتين و45 دقيقة.', description: 'مدة الاختبار' },
-      { id: 2, title: 'يمكن بشكل ورقي أو أونلاين.', description: 'إجراء الاختبار' },
-      { id: 3, title: 'Academic (للدراسة والهجرة) وGeneral (للعمل في الشركات الأجنبية).', description: 'نوعا الاختبار' },
-      { id: 4, title: 'الاستماع، التحدث، القراءة، الكتابة.', description: 'يختبر المهارات الأربعة' },
-      { id: 5, title: 'تتراوح بين 5 و 9.', description: 'الدرجة المطلوبة' },
-      { id: 6, title: '250 دولار.', description: 'رسوم الاختبار' },
-      { id: 7, title: 'سنتين فقط.', description: 'صلاحية الشهادة' },
-      { id: 8, title: '3 جهات رئيسية', description: 'اختبار دولي يُقدمه' }
+      { id: 1, title: '"2 hours and 45 minutes"', description: 'Test Duration' },
+      { id: 2, title: 'It can be taken on paper or online', description: 'Taking the test' },
+      { id: 3, title: 'Academic (for study and migration), General (for work in foreign companies)', description: 'The two types of the test' },
+      { id: 4, title: 'Listening, Reading, Writing, and Speaking.', description: 'It tests the four skills' },
+      { id: 5, title: 'It ranges between 5 and 9', description: 'The required score' },
+      { id: 6, title: '$250 USD', description: 'Test fees' },
+      { id: 7, title: 'Only two years', description: 'Validity of the certificate' },
+      { id: 8, title: '3 main organizations', description: 'An international test provided by' },
     ]);
     
     let autoplayInterval = null; 
@@ -62,7 +62,7 @@ export default {
     };
 
     const autoplay = () => {
-      currentSlide.value = (currentSlide.value - 1) % clubs.value.length; 
+      currentSlide.value = (currentSlide.value + 1) % clubs.value.length; 
     };
 
     watch(currentSlide, (newValue) => {
