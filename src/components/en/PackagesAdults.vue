@@ -1,16 +1,16 @@
 <template>
   <div class="packages">
     <div class="packages-title-n">
-      <h3>قائمة الأسعار</h3>
-      <h1>تعليم متقن، استثمار ذكي</h1>
+      <h3>Pricing List</h3>
+      <h1>Masterful Learning, Smart Investment</h1>
     </div>
 
     <!-- Package Duration Selection (Only for adults) -->
     <div class="packages-menu-n" v-if="selectedFilter === 'adults'">
       <ul>
-        <li @click="selectMenu('two-months')" :class="{ selected: selectedMenu === 'two-months' }">شهرين</li>
-        <li @click="selectMenu('four-months')" :class="{ selected: selectedMenu === 'four-months' }">4 أشهر</li>
-        <li @click="selectMenu('six-months')" :class="{ selected: selectedMenu === 'six-months' }">6 أشهر</li>
+        <li @click="selectMenu('two-months')" :class="{ selected: selectedMenu === 'two-months' }">2 Months</li>
+        <li @click="selectMenu('four-months')" :class="{ selected: selectedMenu === 'four-months' }">4 Months</li>
+        <li @click="selectMenu('six-months')" :class="{ selected: selectedMenu === 'six-months' }">6 Months</li>
       </ul>
     </div>
 
@@ -20,71 +20,68 @@
         <!-- Two Months Cards -->
         <div class="package-card">
           <div class="card-header">
-             <h3>
-                <span> (شهرين) </span>
-                <br>
-                المعايشة بلس
-             </h3>
+            <h3><span> (2 months) </span><br>Immersion Plus</h3>
+            <p class="badge"><span>Best <br><bold>Value</bold></span></p>
           </div>
 
           <div class="card-body">
-            <p>“المعيشة بلس” هي باقتك المثالية، تقدم أقصى قيمة مقابل السعر بميزات فريدة وخدمة شاملة تضمن راحتك.</p>
-            <h2>{{ prices[3]?.price }}</h2>
+            <p>The "Immersion Plus" package offers the highest value with exceptional benefits and comprehensive learning support to enhance your language learning experience.</p>
+            <h2>{{ prices[16]?.price }}</h2>
             
-            <h6>واستمتع بالاتي:</h6>
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>نادى لايف كوتش:<span>جلسة مجانية</span></li>
-              <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
+              <li>Basic Sessions<span>8 sessions per month</span></li>
+              <li>Movie Club<span>Once a week</span></li>
+              <li>Speaking Club<span>Twice a week</span></li>
+              <li>Debate Club<span>Once a month</span></li>
+              <li>Phonetics Club<span>teacher's recommendation</span></li>
+              <li>Live Coaching Club<span>Free session</span></li>
+              <li>Speak with Foreigners<span>Twice a month</span></li>
+              <li>Monthly meeting with trainees</li>
+              <li>Detailed monthly language level reports</li>
             </ul>
-            <a :href="'https://www.monglish.co.uk/ar/adult-courses#packages-section'" class="purchase-btn">اذهب لشرائه</a>
+            <button @click="addToCart(prices[16]?.packageId)">Buy</button>
           </div>
         </div>
         <div class="package-card">
           <div class="card-header">
-            <h3><span> (شهرين)</span>
-            <br>المعايشة</h3>
+            <h3><span> (2 months)</span><br>Immersion</h3>
+            <p class="badge"><span>Best <br><bold>Selling</bold></span></p>
           </div>
           <div class="card-body">
-            <p>باقة “المعيشة” توفر العديد من الميزات وهي الخيار المعتاد لعملائنا، تضمن الراحة والخدمات المتميزة بكفاءة.</p>
-            <h2>{{ prices[2]?.price }}</h2>
-            
-            <h6>واستمتع بالاتي:</h6>
+          <p>The "Immersion" package offers numerous features and is the standard choice for our customers, ensuring comfort and excellent services with efficiency.</p>
+            <h2>{{ prices[15]?.price }}</h2>
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
+              <li>Basic Sessions<span>8 sessions per month</span></li>
+              <li>Reading Club<span>Once a week</span></li>
+              <li>Movie Club<span>Once a week</span></li>
+              <li>Speaking Club<span> Daily</span></li>
+              <li>Debate Club<span>Once a month</span></li>
+              <li>Detailed monthly language level reports</li>
             </ul>
-            <a :href="'https://www.monglish.co.uk/ar/adult-courses#packages-section'" class="purchase-btn">اذهب لشرائه</a>
+            <button @click="addToCart(prices[15]?.packageId)">Buy</button>
           </div>
         </div>
         <div class="package-card">
           <div class="card-header">
-            <h3><span> (شهرين)</span>
+            <h3><span> (2 months)</span>
             <br>
-            أساسية</h3>
+            Basic</h3>
           </div>
           <div class="card-body">
-            <p>باقة مونجلش الأساسية هي الأقل سعراً، ولكنها تحتوي على بعض ميزات دوراتنا التي توفر تجربة تعليمية مميزة.</p>
-            <h2>{{ prices[1]?.price }}</h2>
+            <p>The Monglish Basic package is the most affordable, yet it includes some of our key features that provide a distinguished learning experience.</p>
+            <h2>{{ prices[14]?.price }}</h2>
             
-            <h6>واستمتع بالاتي:</h6>
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة شهرياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
+              <li>Basic Sessions<span>8 sessions per month</span></li>
+              <li>Reading Club<span>Once a week</span></li>
+              <li>Speaking Club<span> Daily</span></li>
+              <li>Debate Club<span>Once a month</span></li>
+              <li>Detailed monthly language level reports</li>
             </ul>
-            <a :href="'https://www.monglish.co.uk/ar/adult-courses#packages-section'" class="purchase-btn">اذهب لشرائه</a>
+            <button @click="addToCart(prices[14]?.packageId)">Buy</button>
           </div>
         </div>
       </div>
@@ -93,145 +90,131 @@
         <!-- Four Months Cards -->
         <div class="package-card">
           <div class="card-header">
-            <h3>
-              <span> (4 شهور)</span>
-              <br>
-              المعايشة بلس</h3>
+            <h3><span> (4 months)</span><br>Immersion Plus</h3>
+            <p class="badge"><span>Best <br><bold>Value</bold></span></p>
           </div>
           <div class="card-body">
-            <p>“المعيشة بلس” هي باقتك المثالية، تقدم أقصى قيمة مقابل السعر بميزات فريدة وخدمة شاملة تضمن راحتك.</p>
+            <p>The "Immersion Plus" package offers the highest value with exceptional benefits and comprehensive learning support to enhance your language learning experience.</p>
             <h2>
-              {{ prices[6]?.price }}
-              <span class="sloped-line">{{ prices[6]?.beforePrice }}</span> 
+              {{ prices[13]?.price }}
+              <span class="sloped-line">{{ prices[13]?.beforePrice }}</span> 
             </h2>
-            <h6>واستمتع بالاتي:</h6>
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>نادى لايف كوتش:<span>جلسة مجانية</span></li>
-              <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
+              <li>Basic Sessions<span>8 sessions per month</span></li>
+              <li>Reading Club<span>Once a week</span></li>
+              <li>Movie Club<span>Once a week</span></li>
+              <li>Speaking Club<span> Daily</span></li>
+              <li>Debate Club<span>Once a month</span></li>
+              <li>Phonetics Club<span>teacher's recommendation</span></li>
+              <li>Live Coaching Club<span>Free session</span></li>
+              <li>Speak with Foreigners<span>Twice a month</span></li>
+              <li>Monthly meeting with trainees</li>
+              <li>Detailed monthly language level reports</li>
             </ul>
-            <a :href="'https://www.monglish.co.uk/ar/adult-courses#packages-section'" class="purchase-btn">اذهب لشرائه</a>
+            <button @click="addToCart(prices[13]?.packageId)">Buy</button>
           </div>
         </div>
 
         <div class="package-card">
           <div class="card-header">
-            <h3>
-              <span> (4 شهور)</span>
-              <br>
-              المعايشة</h3>
+            <h3><span> (4 months)</span><br>Immersion</h3>
+            <p class="badge"><span>Best <br><bold>Selling</bold></span></p>
           </div>
           <div class="card-body">
-            <p>باقة “المعيشة” توفر العديد من الميزات وهي الخيار المعتاد لعملائنا، تضمن الراحة والخدمات المتميزة بكفاءة.</p>
+          <p>The "Immersion" package offers numerous features and is the standard choice for our customers, ensuring comfort and excellent services with efficiency.</p>
             <h2>
-              {{ prices[5]?.price }}
-              <span class="sloped-line">{{ prices[5]?.beforePrice }}</span> 
+              {{ prices[12]?.price }}
+              <span class="sloped-line">{{ prices[12]?.beforePrice }}</span> 
             </h2>
-            <h6>واستمتع بالاتي:</h6>
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
+              <li>Basic Sessions<span>8 sessions per month</span></li>
+              <li>Reading Club<span>Once a week</span></li>
+              <li>Movie Club<span>Once a week</span></li>
+              <li>Speaking Club<span> Daily</span></li>
+              <li>Debate Club<span>Once a month</span></li>
+              <li>Detailed monthly language level reports</li>
             </ul>
-            <a :href="'https://www.monglish.co.uk/ar/adult-courses#packages-section'" class="purchase-btn">اذهب لشرائه</a>
+            <button @click="addToCart(prices[12]?.packageId)">Buy</button>
           </div>
         </div>
 
         <div class="package-card">
           <div class="card-header">
-            <h3>
-              <span> (4 شهور)</span>
-              <br>
-              أساسية</h3>
+            <h3><span> (4 months)</span><br>Basic</h3>
           </div>
           <div class="card-body">
-            <p>باقة مونجلش الأساسية هي الأقل سعراً، ولكنها تحتوي على بعض ميزات دوراتنا التي توفر تجربة تعليمية مميزة.</p>
-            <h2>{{ prices[4]?.price }}</h2>
+            <p>The Monglish Basic package is the most affordable, yet it includes some of our key features that provide a distinguished learning experience.</p>
+            <h2>{{ prices[11]?.price }}</h2>
           
-            <h6>واستمتع بالاتي:</h6>
+            <h6>Enjoy the following:</h6>
             <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>إجتماع شهري لأولياء الأمور</li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
+              <li>Basic Sessions<span>8 sessions per month</span></li>
+              <li>Reading Club<span>Once a week</span></li>
+              <li>Speaking Club<span> Daily</span></li>
+              <li>Debate Club<span>Once a month</span></li>
+              <li>Detailed monthly language level reports</li>
             </ul>
-            <a :href="'https://www.monglish.co.uk/ar/adult-courses#packages-section'" class="purchase-btn">اذهب لشرائه</a>
+            <button @click="addToCart(prices[11]?.packageId)">Buy</button>
           </div>
         </div>
       </div>
 
       <div class="packages-cards" v-else-if="selectedMenu === 'six-months'">
-      <!-- Six Months Cards -->      
-      <div class="package-card">
-        <div class="card-header">
-            <h3>
-              <span> (6 اشهر)</span>
-              <br>
-              المعايشة بلس</h3>
-             <p class="badge"><span>الأفضل <br><bold>قيمة</bold></span></p>
+        <!-- Six Months Cards -->      
+        <div class="package-card">
+          <div class="card-header">
+            <h3><span> (6 months)</span><br>Immersion Plus</h3>
+            <p class="badge"><span>Best <br><bold>Value</bold></span></p>
           </div>
-        <div class="card-body">
-          <p>“المعيشة بلس” هي باقتك المثالية، تقدم أقصى قيمة مقابل السعر بميزات فريدة وخدمة شاملة تضمن راحتك.</p>
-          <h2>
-              {{ prices[10]?.price }}
-              <span class="sloped-line">{{ prices[10]?.beforePrice }}</span> 
-            </h2>
-          <h6>واستمتع بالاتي:</h6>
-          <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>نادى لايف كوتش:<span>جلسة مجانية</span></li>
-              <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-            </ul>
-          <a :href="'https://www.monglish.co.uk/ar/package/'" class="purchase-btn">
-             اذهب لشرائه
-            </a>
+          <div class="card-body">
+              <p>The "Immersion Plus" package offers the highest value with exceptional benefits and comprehensive learning support to enhance your language learning experience.</p>
+            <h2>
+                {{ prices[10]?.price }}
+                <span class="sloped-line">{{ prices[10]?.beforePrice }}</span> 
+              </h2>
+              <h6>Enjoy the following:</h6>
+              <ul>
+                <li>Basic Sessions<span>8 sessions per month</span></li>
+                <li>Reading Club<span>Once a week</span></li>
+                <li>Movie Club<span>Once a week</span></li>
+                <li>Speaking Club<span> Daily</span></li>
+                <li>Debate Club<span>Once a month</span></li>
+                <li>Phonetics Club<span>teacher's recommendation</span></li>
+                <li>Live Coaching Club<span>Free session</span></li>
+                <li>Speak with Foreigners<span>Twice a month</span></li>
+                <li>Monthly meeting with trainees</li>
+                <li>Detailed monthly language level reports</li>
+              </ul>
+            <button @click="addToCart(prices[10]?.packageId)">Buy</button>
+          </div>
         </div>
-      </div>
-      <div class="package-card">
-        <div class="card-header">
-            <h3>
-              <span> (6 اشهر)</span>
-              <br>
-              المعايشة</h3>
-             <p class="badge"><span>الأفضل <br><bold>مبيعاً</bold></span></p>
-        </div>
-        <div class="card-body">
-          <p>باقة “المعيشة” توفر العديد من الميزات وهي الخيار المعتاد لعملائنا، تضمن الراحة والخدمات المتميزة بكفاءة.</p>
-          <h2>
-              {{ prices[9]?.price }}
-              <span class="sloped-line">{{ prices[9]?.beforePrice }}</span> 
-            </h2>
-          <h6>واستمتع بالاتي:</h6>
-          <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-            </ul>
-          <a :href="'https://www.monglish.co.uk/ar/package/'" class="purchase-btn">
-             اذهب لشرائه
-            </a>
+        <div class="package-card">
+          <div class="card-header">
+            <h3><span> (6 months)</span><br>Immersion</h3>
+            <p class="badge"><span>Best <br><bold>Selling</bold></span></p>
+          </div>
+          <div class="card-body">
+            <p>The "Immersion" package offers numerous features and is the standard choice for our customers, ensuring comfort and excellent services with efficiency.</p>
+            <h2>
+                {{ prices[9]?.price }}
+                <span class="sloped-line">{{ prices[9]?.beforePrice }}</span> 
+              </h2>
+              <h6>Enjoy the following:</h6>
+              <ul>
+                <li>Basic Sessions<span>8 sessions per month</span></li>
+                <li>Reading Club<span>Once a week</span></li>
+                <li>Movie Club<span>Once a week</span></li>
+                <li>Speaking Club<span> Daily</span></li>
+                <li>Debate Club<span>Once a month</span></li>
+                <li>Detailed monthly language level reports</li>
+              </ul>
+            <button @click="addToCart(prices[9]?.packageId)">Buy</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -300,6 +283,37 @@
         .catch(error => console.error('Error fetching package details:', error));
 
       },
+      addToCart(packageId) {
+        let url = sessionStorage.getItem('userInfo') ? '/api/user/cart' : '/api/session/cart';
+        const userInfo = sessionStorage.getItem('userInfo');
+        let headers = {};
+        if (userInfo) {
+          try {
+            const parsedUserInfo = JSON.parse(userInfo);
+            const token = parsedUserInfo.token;
+
+            if (token) {
+              headers['Authorization'] = `Bearer ${token}`;
+              headers['Content-type'] = 'application/json';
+            }
+          } catch (error) {
+            console.error('Error parsing userInfo from sessionStorage:', error);
+          }
+        }
+        axios.post(url, {
+          course_package_id: packageId,
+          quantity: 1 
+        }, { headers })
+        .then(response => {
+          console.log('Item added to cart successfully:', response.data);
+          this.$router.push({ name: 'CartAr' }).then(() => {
+              window.location.reload();
+          });
+        })
+        .catch(error => {
+          console.error('Error adding item to cart:', error.response ? error.response.data : error.message);
+        });
+      }
     },
     mounted() {
       this.fetchPackagePrices();
@@ -309,7 +323,7 @@
 
 <style scoped>
 .packages{
-  direction: rtl;
+  direction: ltr;
 }
 .packages-filter-switch {
     display: flex;
@@ -409,7 +423,7 @@ input:not(:checked) ~ .slider .label-right {
     background-size: cover;
     background-position: center;
     font-family: 'DIN Next LT Arabic', sans-serif;
-    padding: 20px 0;
+    padding: 50px 0;
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
@@ -419,16 +433,17 @@ input:not(:checked) ~ .slider .label-right {
 .packages-title-n {
     text-align: center;
     color: white;
+    margin-bottom: 40px;
+    padding-top: 50px;
 }
 .packages-title-n h3 {
     font-size: 2.5rem;
     font-weight: 500;
-    line-height: 30px;
+    line-height: 100%;
 }
 .packages-title-n h1 {
     font-size: 3rem;
     font-weight: 500;
-    line-height: 30px;
 }
 .packages-menu-n {
     display: flex;
@@ -455,12 +470,13 @@ input:not(:checked) ~ .slider .label-right {
   content: '';
   display: inline-block;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M9.2793 2.82026L4.10131 7.99818L9.2793 13.1761L7.22864 15.2268L-8.29697e-05 7.99818L7.22864 0.769531L9.2793 2.82026Z" fill="white"/><path d="M13.9493 15.2268L6.72069 7.99818L13.9493 0.769531L16 2.82026L10.8221 7.99818L16 13.1761L13.9493 15.2268Z" fill="white"/></svg>');
-  width: 16px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: scaleX(-1); /* Flip horizontally */  width: 16px;
   height: 16px;
   position: absolute;
-  right: -25px; 
+  left: -25px; 
   top: 50%;
-  transform: translateY(-50%);
 }
 .packages-menu-n li.selected::before {
   content: '';
@@ -510,19 +526,19 @@ input:not(:checked) ~ .slider .label-right {
 .card-header .badge {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     width: 0;
     height: 0;
-    border-right: 160px solid transparent;
+    border-left: 160px solid transparent;
     border-top: 160px solid #ff8901;
     margin-top: -0.5px;
-    border-radius: 20px 0 0 0;
+    border-radius: 0 20px 0 0;
 }
 .card-header .badge span {
     position: absolute;
-    left: 15px;
-    top:-150px;
-    transform: rotate(-45deg);
+    right: -5px;
+    top:-135px;
+    transform: rotate(45deg);
     white-space: nowrap;
     font-size: 20px;
     color: #fff;
@@ -557,7 +573,7 @@ input:not(:checked) ~ .slider .label-right {
 }
 .card-body li {
     position: relative;
-    padding-right: 20px;
+    padding-left: 20px;
     margin-bottom: 10px;
     color: #666;
     border-bottom: 1px solid #e9e9e9;
@@ -565,11 +581,12 @@ input:not(:checked) ~ .slider .label-right {
 }
 .card-body li span{
     color: #f47e23;
+    padding-left: 5px;
 }
 .card-body li::before {
     content: '✓';
     position: absolute;
-    right: 0;
+    left: 0;
     color: #f48026;
     font-weight: bold;
 }
@@ -577,9 +594,9 @@ input:not(:checked) ~ .slider .label-right {
     border-bottom: none;
     margin-bottom: 0;
 }
-.purchase-btn{
+.card-body button{
     width: 100%;
-    padding: 8px 0;
+    padding: 10px;
     background: linear-gradient(45deg, #fe9b4f, #f47e23);
     color: white;
     border: none;
@@ -587,10 +604,6 @@ input:not(:checked) ~ .slider .label-right {
     cursor: pointer;
     margin-bottom: 10px;
     font-size: larger;
-    font-family: 'DIN Next LT Arabic', sans-serif;
-    text-decoration: none;
-    display: block;
-    text-align: center;
 }
 
 @media (max-width: 800px) {

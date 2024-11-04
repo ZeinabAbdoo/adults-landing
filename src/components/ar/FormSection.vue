@@ -90,7 +90,7 @@ export default {
         name: this.fullName,
         email: this.email,
         phone: this.fullPhoneNumber,
-        stage: 'adults', 
+        stage: 'adults-landing-popup-form', 
       };
 
       console.log("Payload before sending:", payload);
@@ -179,16 +179,14 @@ export default {
 }
 
 .pop-input {
+  box-sizing: border-box;
   width: calc(100% - 1.25em);
-  padding: 0.8em;
+  padding: 0.625em;
   margin: 0;
   border-radius: 15px;
   background-color: #f3f7ff;
   border: none;
-  color: #000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: border 0.3s;
-  height: 50px;
+  height: 50px; 
 }
 
 .pop-input:focus {

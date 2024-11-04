@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app2">
     <component :is="currentNavbar" />
     <router-view />
     <component :is="currentFooter" />
@@ -55,8 +55,27 @@ export default {
     font-family: 'DIN Next LT Arabic';
     src: url('@/assets/fonts/DINNextLTArabic-Regular-3.ttf') format('truetype');
   }
-
-  #app{
+  @font-face {
+    font-family: 'DIN Next LT Arabic-n';
+    src: url('@/assets/fonts/DINNextLTArabic-Heavy.ttf') format('truetype');
+    font-weight: 800;
+  }
+  @font-face {
+    font-family: 'DIN Next LT Arabic-n';
+    src: url('@/assets/fonts/DINNextLTArabic-Regular-3.ttf') format('truetype');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'DIN Next LT Arabic-n';
+    src: url('@/assets/fonts/DINNextLTArabic-Light.ttf') format('truetype');
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: 'DIN Next LT Arabic-n';
+    src: url('@/assets/fonts/DINNextLTArabic-UltraLight.ttf') format('truetype');
+    font-weight: 100;
+  }
+  #app2{
     width : 100%;
   }
 </style>

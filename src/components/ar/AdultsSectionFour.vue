@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 .immerse-sec2 {
-  padding: 1em 0;
+  padding: 2em 0;
   background-color: white;
   display: flex;
   flex-direction: column;

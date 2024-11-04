@@ -1,8 +1,8 @@
 <template>
   <div class="packages">
     <div class="packages-title-n">
-      <h3>قائمة الأسعار</h3>
-      <h1>تعليم متقن، استثمار ذكي</h1>
+      <h3>مستقبلك يبدأ من هنا</h3>
+      <h1>تعليم تفاعلي، استثمار ذكي</h1>
     </div>
 
     <!-- Package Duration Selection (Only for adults) -->

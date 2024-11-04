@@ -1,11 +1,12 @@
 <template>
+<PopUp />
   <AdultsSectionOne />
   <AdultsSectionTwo />
   <AdultsSectionThree />
   <AdultsSectionFour />
   <AdultsSectionFive />
   <AdultLevels />
-  <CoursesSwiper />
+  <FormSection/>
 
   <!--Section Eight Content-->
   <div class="kids-sec8">
@@ -29,20 +30,20 @@
     </div>
   </div>
 
-  <PackagesAdults />
-  <VideoSlider />
-  <FormSection />
+
+  <PackagesAdults ref="packagesSection"/>
   <ViewThree />
  
-  <div class="Last-section">
-    <h1>Still Need Help?</h1>
-    <p>We are happy to receive your messages and respond to all your inquiries.</p>
-    <a href="https://www.monglish.co.uk/en/contact" class="contact-btn">Contact Us</a>
-</div>
+  <div class="full-section">
+    <div class="Last-section">
+      <h1>Still Need Help?</h1>
+      <p>We are happy to receive your messages and respond to all your inquiries.</p>
+      <a href="https://www.monglish.co.uk/en/contact" class="contact-btn">Contact Us</a>
+  </div>
+  </div>
 </template>
 
 <script>
-import CoursesSwiper from '../../components/en/CoursesSwiper.vue';
 import AdultLevels from '../../components/en/AdultLevels.vue';
 import AdultsSectionOne from '../../components/en/AdultsSectionOne.vue';
 import AdultsSectionTwo  from '../../components/en/AdultsSectionTwo.vue';
@@ -51,8 +52,8 @@ import AdultsSectionFour from '../../components/en/AdultsSectionFour.vue';
 import AdultsSectionFive from '../../components/en/AdultsSectionFive.vue';
 import PackagesAdults from '../../components/en/PackagesAdults.vue';
 import ViewThree from '../../components/en/ViewThree';
-import VideoSlider  from '../../components/en/VideoSlider.vue';
 import FormSection from '../../components/en/FormSection.vue';
+import PopUp from '../../components/en/PopUp2.vue';
 
 import Swiper from 'swiper';
 import 'swiper/css';
@@ -62,7 +63,6 @@ import 'swiper/css/pagination';
 export default {
   name: 'AdultsCourses',
   components: {
-    CoursesSwiper,
     AdultLevels,
     AdultsSectionOne,
     AdultsSectionTwo,
@@ -71,8 +71,8 @@ export default {
     AdultsSectionFive,
     PackagesAdults,
     ViewThree,
-    VideoSlider,
-    FormSection
+    FormSection,
+    PopUp
   },
   data() {
     return {
@@ -105,6 +105,8 @@ export default {
     };
   },
   mounted() {
+    this.scrollToPackagesWithDelay();
+
     this.$nextTick(() => {
       const swiperContainer = this.$refs.swiperContainer;
       if (swiperContainer) {
@@ -134,6 +136,21 @@ export default {
     toggleDescription(id) {
       this.activeDescription = this.activeDescription === id ? null : id;
     },
+        scrollToPackagesWithDelay() {
+      setTimeout(() => {
+        if (this.$route.hash === '#packages-section') {
+          const packagesSection = this.$refs.packagesSection;
+          if (packagesSection) {
+            packagesSection.$el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, 300); 
+    }
+  },
+  watch: {
+    '$route.hash'() {
+      this.scrollToPackagesWithDelay();
+    }
   }
 }
 </script>
@@ -260,7 +277,7 @@ export default {
 }
 
 .Last-section {
-  width: 85%;
+  width: 86%;
   background-color: #eee;
   border-radius: 15px;
   direction: ltr;
@@ -269,7 +286,23 @@ export default {
   padding: 5px 20px 20px 20px;
   margin: 40px auto 20px auto;
 }
+@media (max-width: 1440px) {
+  .Last-section{
+      width: 83%;
+  }
+}
+@media (max-width: 1240px) {
+  .Last-section{
+      width: 81%;
+  }
+}
 
+@media (max-width: 1040px) {
+  .Last-section{
+      width: 78%;
+
+  }
+}
 .Last-section h1 {
   font-size: 40px;
   line-height: 60px;
@@ -327,6 +360,8 @@ export default {
     margin-top: 10px;  /* Add margin for spacing */
   }
 }
-
-
+.full-section{
+    background-color: #fff;
+    padding:  30px 0;
+}
 </style>

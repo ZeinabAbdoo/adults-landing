@@ -1,11 +1,12 @@
 <template>
+  <PopUp />
   <AdultsSectionOne />
   <AdultsSectionTwo />
   <AdultsSectionThree />
   <AdultsSectionFour />
   <AdultsSectionFive />
   <AdultLevels />
-  <CoursesSwiper />
+  <FormSection />
 
   <!--Section Eight Content-->
   <div class="kids-sec8">
@@ -29,21 +30,19 @@
     </div>
   </div>
 
-  <PackagesAdults />
-  <VideoSlider />
-  <FormSection />
-  <ViewThree />
- 
-  <div class="Last-section">
-    <h1>مازلت تحتاج للمساعدة ؟</h1>
-    <p>يسعدنا استقبال رسائلكم والرد على جميع استفساراتكم.</p>
-    <a href="https://www.monglish.co.uk/ar/contact" class="contact-btn">تواصل معنا</a>
+  <PackagesAdults ref="packagesSection"/>
+  <ViewAdults />
+  <div class="full-section">
+    <div class="Last-section">
+      <h1>مازلت تحتاج للمساعدة ؟</h1>
+      <p>يسعدنا استقبال رسائلكم والرد على جميع استفساراتكم.</p>
+      <a href="https://www.monglish.co.uk/ar/contact" class="contact-btn">تواصل معنا</a>
+    </div>
   </div>
-
+ 
 </template>
 
 <script>
-import CoursesSwiper from '../../components/ar/CoursesSwiper.vue';
 import AdultLevels from '../../components/ar/AdultLevels.vue';
 import AdultsSectionOne from '../../components/ar/AdultsSectionOne.vue';
 import AdultsSectionTwo  from '../../components/ar/AdultsSectionTwo.vue';
@@ -51,9 +50,9 @@ import AdultsSectionThree from '../../components/ar/AdultsSectionThree.vue';
 import AdultsSectionFour from '../../components/ar/AdultsSectionFour.vue';
 import AdultsSectionFive from '../../components/ar/AdultsSectionFive.vue';
 import PackagesAdults from '../../components/ar/PackagesAdults.vue';
-import ViewThree from '../../components/ar/ViewThree.vue';
+import ViewAdults from '../../components/ar/ViewAdults.vue';
 import FormSection from '../../components/ar/FormSection.vue';
-import VideoSlider  from '../../components/ar/VideoSlider.vue';
+import PopUp from '../../components/ar/PopUp2.vue';
 
 import Swiper from 'swiper';
 import 'swiper/css';
@@ -63,7 +62,6 @@ import 'swiper/css/pagination';
 export default {
   name: 'AdultsCourses',
   components: {
-    CoursesSwiper,
     AdultLevels,
     AdultsSectionOne,
     AdultsSectionTwo,
@@ -71,9 +69,9 @@ export default {
     AdultsSectionFour,
     AdultsSectionFive,
     PackagesAdults,
-    ViewThree,
+    ViewAdults,
     FormSection,
-    VideoSlider
+    PopUp
   },
   data() {
     return {
@@ -110,6 +108,8 @@ export default {
     };
   },
   mounted() {
+        this.scrollToPackagesWithDelay();
+
     this.$nextTick(() => {
       const swiperContainer = this.$refs.swiperContainer;
       if (swiperContainer) {
@@ -138,6 +138,20 @@ export default {
     },
     toggleDescription(id) {
       this.activeDescription = this.activeDescription === id ? null : id;
+    }, scrollToPackagesWithDelay() {
+      setTimeout(() => {
+        if (this.$route.hash === '#packages-section') {
+          const packagesSection = this.$refs.packagesSection;
+          if (packagesSection) {
+            packagesSection.$el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, 300); 
+    }
+  },
+  watch: {
+    '$route.hash'() {
+      this.scrollToPackagesWithDelay();
     }
   }
 }
@@ -146,7 +160,7 @@ export default {
 <style scoped>
 /* Section 8 style */
 .kids-sec8 {
-  padding: 2%;
+  padding: 2% 2% 3% 2%;
   background-color: white;
   height: auto; 
   direction: rtl;
@@ -156,7 +170,7 @@ export default {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 1em;
+  margin-top: 2em;
   font-family: 'DIN Next LT Arabic';
   font-weight: 500;
   color: #165e84;
@@ -184,7 +198,6 @@ export default {
   .kids-sec8-row h4 {
     width: 25%;
     margin: 0;
-    padding-right: 1em;
     font-size: 48px;
   }
   .kids-sec8-row h4 span{
@@ -193,7 +206,6 @@ export default {
   .kids-sec8-row p {
     width: 70%;
     margin: 0;
-    padding-left: 20px;
   }
 }
 @media (max-width: 769px) {
@@ -223,6 +235,8 @@ export default {
   margin: auto;
   background-color: #fff;
   margin-top: 1em;
+    padding: 0 2% 0 2%;
+
 }
 .swiper-container {
   width: 100%;
@@ -264,18 +278,21 @@ export default {
   font-family: 'DIN Next LT Arabic', sans-serif;
 }
 
-
 .Last-section {
-  width: 85%;
+  width: 100%;
   background-color: #eee;
   border-radius: 15px;
   direction: rtl;
   text-align: right;
   position: relative;
-  padding: 5px 20px 20px 20px;
-  margin: 40px auto 20px auto;
+  padding: 20px;
+  margin: 0 auto;
 }
 
+.full-section{
+  background-color: #fff;
+  padding: 2% 7% 2% 5%;
+}
 .Last-section h1 {
   font-size: 40px;
   line-height: 60px;
@@ -306,6 +323,24 @@ export default {
   bottom: 20px;
 }
 
+@media (max-width: 1440px) {
+  .full-section{
+    padding: 2% 9% 2% 8%;
+  }
+}
+
+@media (max-width: 1240px) {
+  .full-section{
+    padding: 2% 11% 2% 8%;
+  }
+}
+
+@media (max-width: 1040px) {
+  .full-section{
+    padding: 2% 13% 2% 10%;
+  }
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   .Last-section {
@@ -333,5 +368,4 @@ export default {
     margin-top: 10px;  /* Add margin for spacing */
   }
 }
-
 </style>
