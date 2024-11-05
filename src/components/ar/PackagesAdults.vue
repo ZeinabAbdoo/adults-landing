@@ -42,7 +42,7 @@
               <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
               <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[16]?.packageId)">اذهب</button>
+            <button class="purchase-btn" @click="addToCart(prices[16]?.packageId)">شراء</button>
           </div>
         </div>
         <div class="package-card">
@@ -63,7 +63,7 @@
               <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
               <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[15]?.packageId)">اذهب</button>
+            <button class="purchase-btn" @click="addToCart(prices[15]?.packageId)">شراء</button>
           </div>
         </div>
         <div class="package-card">
