@@ -6,13 +6,13 @@ import CartEn from '../components/en/CartPage.vue';
 import CartAr from '../components/ar/CartPage.vue';
 
 const englishRoutes = [
-  { path: '/en', name: 'HomeEn', component: HomeEn },
-  { path: '/en/cart', name: 'CartEN', component: CartEn }
+  { path: '/en/', name: 'HomeEn', component: HomeEn },
+  { path: '/en/cart/', name: 'CartEn', component: CartEn }
 ];
 
 const arabicRoutes = [
   { path: '/', name: 'HomeAr', component: HomeAr },
-  { path: '/ar/cart', name: 'CartAr', component: CartAr }
+  { path: '/ar/cart/', name: 'CartAr', component: CartAr }
 ];
 
 const routes = [

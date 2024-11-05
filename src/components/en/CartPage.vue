@@ -98,8 +98,8 @@
               <td v-if="cartSummary.total_price_discount == 0">Final Price</td>
               <td v-else>Initial Price</td>
               <td>{{ cartSummary.total_price }} {{ cartSummary.currency }}</td>
-            </tr>
-            <tr v-if="cartSummary.family_or_friend_discount > 0">
+             </tr>
+              <tr v-if="cartSummary.total_price_discount > 0">
               <td>Family/Friends Discount</td>
               <td>
                 <div class="remove-coupon-section">
@@ -483,7 +483,7 @@
         }
       },
       goToCourses() {
-        this.$router.push('/en/packages');
+        this.$router.push('/en/');
       },
       validateForm() {
         this.errors = {};

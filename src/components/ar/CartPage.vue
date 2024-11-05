@@ -485,7 +485,7 @@
         }
       },
       goToCourses() {
-        this.$router.push('/ar/packages');
+        this.$router.push('/');
       },
       validateForm() {
         this.errors = {};
