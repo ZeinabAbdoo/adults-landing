@@ -40,7 +40,7 @@
               <li>Monthly meeting with trainees</li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button @click="addToCart(prices[16]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[16]?.packageId)">Buy</button>
           </div>
         </div>
         <div class="package-card">
@@ -60,7 +60,7 @@
               <li>Debate Club<span>Once a month</span></li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button @click="addToCart(prices[15]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[15]?.packageId)">Buy</button>
           </div>
         </div>
         <div class="package-card">
@@ -81,7 +81,7 @@
               <li>Debate Club<span>Once a month</span></li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button @click="addToCart(prices[14]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[14]?.packageId)">Buy</button>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
               <li>Monthly meeting with trainees</li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button @click="addToCart(prices[13]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[13]?.packageId)">Buy</button>
           </div>
         </div>
 
@@ -136,7 +136,7 @@
               <li>Debate Club<span>Once a month</span></li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button @click="addToCart(prices[12]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[12]?.packageId)">Buy</button>
           </div>
         </div>
 
@@ -156,7 +156,7 @@
               <li>Debate Club<span>Once a month</span></li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button @click="addToCart(prices[11]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[11]?.packageId)">Buy</button>
           </div>
         </div>
       </div>
@@ -187,7 +187,7 @@
                 <li>Monthly meeting with trainees</li>
                 <li>Detailed monthly language level reports</li>
               </ul>
-            <button @click="addToCart(prices[10]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[10]?.packageId)">Buy</button>
           </div>
         </div>
         <div class="package-card">
@@ -210,7 +210,7 @@
                 <li>Debate Club<span>Once a month</span></li>
                 <li>Detailed monthly language level reports</li>
               </ul>
-            <button @click="addToCart(prices[9]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[9]?.packageId)">Buy</button>
           </div>
         </div>
       </div>
@@ -322,17 +322,17 @@
 </script>
 
 <style scoped>
-.packages{
-  direction: ltr;
-}
-.packages-filter-switch {
+  .packages{
+    direction: ltr;
+  }
+  .packages-filter-switch {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     position: relative;
-}
+  }
 
-.label-out {
+  .label-out {
     position: absolute;
     width: 250px;
     height: 100%;
@@ -341,22 +341,22 @@
     justify-content: space-between;
     color: white;
     font-size: 20px;
-}
+  }
 
-.switch {
+  .switch {
     position: relative;
     display: inline-block;
     width: 120px;
     height: 45px;
-}
+  }
 
-.switch input {
+  .switch input {
     opacity: 0;
     width: 0;
     height: 0;
-}
+  }
 
-.slider {
+  .slider {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -366,9 +366,9 @@
     border-radius: 34px;
     cursor: pointer;
     transition: background-color 0.4s;
-}
+  }
 
-.slider:before {
+  .slider:before {
     position: absolute;
     content: "";
     height: 35px;
@@ -378,29 +378,29 @@
     background-color: orange;
     border-radius: 50%;
     transition: transform 0.4s;
-}
+  }
 
-input:checked + .slider:before {
+  input:checked + .slider:before {
     transform: translateX(75px);
-}
+  }
 
-input:checked ~ .slider .label-left {
+  input:checked ~ .slider .label-left {
     opacity: 1;
-}
+  }
 
-input:checked ~ .slider .label-right {
+  input:checked ~ .slider .label-right {
     opacity: 0;
-}
+  }
 
-input:not(:checked) ~ .slider .label-left {
+  input:not(:checked) ~ .slider .label-left {
     opacity: 0;
-}
+  }
 
-input:not(:checked) ~ .slider .label-right {
+  input:not(:checked) ~ .slider .label-right {
     opacity: 1;
-}
+  }
 
-.label {
+  .label {
     position: absolute;
     font-size: 20px;
     font-weight: bold;
@@ -408,17 +408,17 @@ input:not(:checked) ~ .slider .label-right {
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-}
+  }
 
-.label-left {
+  .label-left {
     left: 15px;
-}
+  }
 
-.label-right {
+  .label-right {
     right: 15px;
-}
+  }
 
-.packages {
+  .packages {
     background-image: url('@/assets/images/bg.jpg');
     background-size: cover;
     background-position: center;
@@ -429,73 +429,73 @@ input:not(:checked) ~ .slider .label-right {
     flex-direction: column;
     align-items: center;
     justify-content: start;
-}
-.packages-title-n {
+  }
+  .packages-title-n {
     text-align: center;
     color: white;
     margin-bottom: 40px;
     padding-top: 50px;
-}
-.packages-title-n h3 {
+  }
+  .packages-title-n h3 {
     font-size: 2.5rem;
     font-weight: 500;
     line-height: 100%;
-}
-.packages-title-n h1 {
+  }
+  .packages-title-n h1 {
     font-size: 3rem;
     font-weight: 500;
-}
-.packages-menu-n {
+  }
+  .packages-menu-n {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     font-size: 1.5rem;
-}
-.packages-menu-n ul {
+  }
+  .packages-menu-n ul {
     list-style: none;
     padding: 10px;
     display: flex;
     border-bottom: 1px solid black;
-}
-.packages-menu-n li {
+  }
+  .packages-menu-n li {
     margin: 0 20px;
     color: white;
     cursor: pointer;
     position: relative;
-}
-.packages-menu-n li:hover, .packages-menu li:focus, .packages-menu li:active, .packages-menu li.selected {
+  }
+  .packages-menu-n li:hover, .packages-menu li:focus, .packages-menu li:active, .packages-menu li.selected {
     color: #ffa500;
-}
-.packages-menu-n li.selected::after {
-  content: '';
-  display: inline-block;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M9.2793 2.82026L4.10131 7.99818L9.2793 13.1761L7.22864 15.2268L-8.29697e-05 7.99818L7.22864 0.769531L9.2793 2.82026Z" fill="white"/><path d="M13.9493 15.2268L6.72069 7.99818L13.9493 0.769531L16 2.82026L10.8221 7.99818L16 13.1761L13.9493 15.2268Z" fill="white"/></svg>');
-  background-repeat: no-repeat;
-  background-size: contain;
-  transform: scaleX(-1); /* Flip horizontally */  width: 16px;
-  height: 16px;
-  position: absolute;
-  left: -25px; 
-  top: 50%;
-}
-.packages-menu-n li.selected::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #ffa500; 
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-}
-.packages-cards {
+  }
+  .packages-menu-n li.selected::after {
+    content: '';
+    display: inline-block;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M9.2793 2.82026L4.10131 7.99818L9.2793 13.1761L7.22864 15.2268L-8.29697e-05 7.99818L7.22864 0.769531L9.2793 2.82026Z" fill="white"/><path d="M13.9493 15.2268L6.72069 7.99818L13.9493 0.769531L16 2.82026L10.8221 7.99818L16 13.1761L13.9493 15.2268Z" fill="white"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: scaleX(-1); /* Flip horizontally */  width: 16px;
+    height: 16px;
+    position: absolute;
+    left: -25px; 
+    top: 50%;
+  }
+  .packages-menu-n li.selected::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ffa500; 
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+  }
+  .packages-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     align-items: center; 
-}
-.package-card {
+  }
+  .package-card {
     background: #fff;
     border-radius: 30px;
     padding: 20px;
@@ -507,23 +507,23 @@ input:not(:checked) ~ .slider .label-right {
     display: flex;
     flex-direction: column;
     justify-content: center; 
-}
-.card-header {
+  }
+  .card-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-}
-.card-header h3{
+  }
+  .card-header h3{
     color: #000000;
     font-size: 27px;
     margin-top: 50px;
     margin-bottom: -25px;
-}
-.card-header h3 span{
+  }
+  .card-header h3 span{
     color: #175f87;
     font-size: 24px;
-}
-.card-header .badge {
+  }
+  .card-header .badge {
     position: absolute;
     top: 0;
     right: 0;
@@ -533,8 +533,8 @@ input:not(:checked) ~ .slider .label-right {
     border-top: 160px solid #ff8901;
     margin-top: -0.5px;
     border-radius: 0 20px 0 0;
-}
-.card-header .badge span {
+  }
+  .card-header .badge span {
     position: absolute;
     right: -5px;
     top:-135px;
@@ -542,59 +542,59 @@ input:not(:checked) ~ .slider .label-right {
     white-space: nowrap;
     font-size: 20px;
     color: #fff;
-}
-.card-header .badge bold{
+  }
+  .card-header .badge bold{
     font-size: 32px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}    
-.card-body p {
+  }    
+  .card-body p {
     color: #666;
     margin-bottom: 20px;
     margin-top: 20px;
     font-size: 13px;
-}
-.card-body h2 {
+  }
+  .card-body h2 {
     color: #F47D21 ;
     font-weight: 600;
     font-size: 34px;
     margin-bottom: 25px;
     margin-top: -15px;
-}
-.card-body h6{
+  }
+  .card-body h6{
     font-weight: 900;
     color: #000000;
     font-size: 14px;
     margin-top: -5px;
     margin-bottom: 5px;
-}
-.card-body ul {
+  }
+  .card-body ul {
     list-style: none;
     padding: 0;
-}
-.card-body li {
+  }
+  .card-body li {
     position: relative;
     padding-left: 20px;
     margin-bottom: 10px;
     color: #666;
     border-bottom: 1px solid #e9e9e9;
     padding-bottom: 5px;
-}
-.card-body li span{
+  }
+  .card-body li span{
     color: #f47e23;
     padding-left: 5px;
-}
-.card-body li::before {
+  }
+  .card-body li::before {
     content: '✓';
     position: absolute;
     left: 0;
     color: #f48026;
     font-weight: bold;
-}
-.card-body li:last-child {
+  }
+  .card-body li:last-child {
     border-bottom: none;
     margin-bottom: 0;
-}
-.card-body button{
+  }
+  .card-body button{
     width: 100%;
     padding: 10px;
     background: linear-gradient(45deg, #fe9b4f, #f47e23);
@@ -604,33 +604,33 @@ input:not(:checked) ~ .slider .label-right {
     cursor: pointer;
     margin-bottom: 10px;
     font-size: larger;
-}
+  }
 
-@media (max-width: 800px) {
-    .packages-title-n h3 {
-        font-size: 1.5rem;
-    }
-    .packages-title-n h1 {
-        font-size: 2rem;
-    }
-}
-.sloped-line {
-  position: relative;
-  display: inline-block;
-  color: #165E84;
-  font-size: 30px;
-  margin-right: 5%;
-  opacity: 0.7; 
-}
-.sloped-line::after {
-  content: '';
-  position: absolute;
-  top: 80%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #FF4646; 
-  transform: rotate(-15deg); 
-  transform-origin: left center;
-}
+  @media (max-width: 800px) {
+      .packages-title-n h3 {
+          font-size: 1.5rem;
+      }
+      .packages-title-n h1 {
+          font-size: 2rem;
+      }
+  }
+  .sloped-line {
+    position: relative;
+    display: inline-block;
+    color: #165E84;
+    font-size: 30px;
+    margin-right: 5%;
+    opacity: 0.7; 
+  }
+  .sloped-line::after {
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #FF4646; 
+    transform: rotate(-15deg); 
+    transform-origin: left center;
+  }
 </style>
