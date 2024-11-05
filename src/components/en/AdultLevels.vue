@@ -7,7 +7,7 @@
 <p>
   Through adult training, we aim to equip them with the necessary language skills to excel in the global job market, opening up vast opportunities for professional growth and personal development.
 </p>
-<button @click="sendMessage">
+<button @click="sendMessage" id="adults-wa2-en">
   Join us now
   <i class="fab fa-whatsapp"></i>
 </button>

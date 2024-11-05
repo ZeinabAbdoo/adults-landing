@@ -42,7 +42,7 @@
               <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
               <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[16]?.packageId)">شراء</button>
+            <button class="purchase-btn" @click="addToCart(prices[16]?.packageId)" id="adults-pg1">شراء</button>
           </div>
         </div>
         <div class="package-card">
@@ -63,7 +63,7 @@
               <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
               <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[15]?.packageId)">شراء</button>
+            <button class="purchase-btn" @click="addToCart(prices[15]?.packageId)" id="adults-pg2">شراء</button>
           </div>
         </div>
         <div class="package-card">
@@ -84,7 +84,7 @@
               <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
               <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[14]?.packageId)">شراء</button>
+            <button class="purchase-btn" @click="addToCart(prices[14]?.packageId)" id="adults-pg3">شراء</button>
           </div>
         </div>
       </div>
@@ -115,7 +115,7 @@
               <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
               <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[13]?.packageId)">شراء</button>
+            <button class="purchase-btn" @click="addToCart(prices[13]?.packageId)" id="adults-pg4">شراء</button>
           </div>
         </div>
 
@@ -141,7 +141,7 @@
               <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
               <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[12]?.packageId)">شراء</button>
+            <button class="purchase-btn" @click="addToCart(prices[12]?.packageId)" id="adults-pg5">شراء</button>
           </div>
         </div>
 
@@ -165,7 +165,7 @@
               <li>إجتماع شهري لأولياء الأمور</li>
               <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[11]?.packageId)">شراء</button>
+            <button class="purchase-btn" @click="addToCart(prices[11]?.packageId)" id="adults-pg6">شراء</button>
           </div>
         </div>
       </div>
@@ -198,7 +198,7 @@
                 <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
                 <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
               </ul>
-              <button class="purchase-btn" @click="addToCart(prices[10]?.packageId)">شراء</button>
+              <button class="purchase-btn" @click="addToCart(prices[10]?.packageId)" id="adults-pg7">شراء</button>
           </div>
         </div>
         <div class="package-card">
@@ -225,7 +225,7 @@
               <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
               <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[9]?.packageId)">شراء</button>
+            <button class="purchase-btn" @click="addToCart(prices[9]?.packageId)" id="adults-pg8">شراء</button>
           </div>
         </div>
       </div>

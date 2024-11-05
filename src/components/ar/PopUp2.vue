@@ -36,7 +36,7 @@
                 :disabled="loading" />
             </div>
             <input type="hidden" v-model="fullPhoneNumber" />
-            <button type="submit" class="pop-btn" :disabled="loading">التسجيل في عروض الجمعة البيضاء</button>
+            <button type="submit" class="pop-btn" :disabled="loading" id="adults-pop-ar">التسجيل في عروض الجمعة البيضاء</button>
           </form>
           <div v-if="loading" class="spinner-overlay">
             <div class="spinner"></div>

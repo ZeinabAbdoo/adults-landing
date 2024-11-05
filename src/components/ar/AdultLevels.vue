@@ -7,7 +7,7 @@
         <p>
           نهدف من خلال تدريب البالغين إلى تزويدهم بالمهارات اللغوية اللازمة للتميز في سوق العمل العالمي، مما يفتح أمامهم آفاقاً واسعة للنمو المهني والتطوير الشخصي.
         </p>
-        <button @click="sendMessage">
+        <button @click="sendMessage" id="adults-wa2-ar">
           إشترك معنا الأن
           <i class="fab fa-whatsapp"></i>
         </button>
