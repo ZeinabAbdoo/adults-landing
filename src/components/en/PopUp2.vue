@@ -135,6 +135,8 @@
             this.phoneNumber = '';
             this.fullPhoneNumber = '';
             this.country = null; 
+
+            this.closePopup2();
           } else {
             console.error('Error in response:', data.message || 'Unknown error');
           }
