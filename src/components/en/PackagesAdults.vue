@@ -40,7 +40,7 @@
               <li>Monthly meeting with trainees</li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[16]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[16]?.packageId)" id="adults-pg9">Buy</button>
           </div>
         </div>
         <div class="package-card">
@@ -60,7 +60,7 @@
               <li>Debate Club<span>Once a month</span></li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[15]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[15]?.packageId)" id="adults-pg10">Buy</button>
           </div>
         </div>
         <div class="package-card">
@@ -81,7 +81,7 @@
               <li>Debate Club<span>Once a month</span></li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[14]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[14]?.packageId)" id="adults-pg11">Buy</button>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
               <li>Monthly meeting with trainees</li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[13]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[13]?.packageId)" id="adults-pg12">Buy</button>
           </div>
         </div>
 
@@ -136,7 +136,7 @@
               <li>Debate Club<span>Once a month</span></li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[12]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[12]?.packageId)" id="adults-pg13">Buy</button>
           </div>
         </div>
 
@@ -156,7 +156,7 @@
               <li>Debate Club<span>Once a month</span></li>
               <li>Detailed monthly language level reports</li>
             </ul>
-            <button class="purchase-btn" @click="addToCart(prices[11]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[11]?.packageId)" id="adults-pg14">Buy</button>
           </div>
         </div>
       </div>
@@ -187,7 +187,7 @@
                 <li>Monthly meeting with trainees</li>
                 <li>Detailed monthly language level reports</li>
               </ul>
-            <button class="purchase-btn" @click="addToCart(prices[10]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[10]?.packageId)" id="adults-pg15">Buy</button>
           </div>
         </div>
         <div class="package-card">
@@ -210,7 +210,7 @@
                 <li>Debate Club<span>Once a month</span></li>
                 <li>Detailed monthly language level reports</li>
               </ul>
-            <button class="purchase-btn" @click="addToCart(prices[9]?.packageId)">Buy</button>
+            <button class="purchase-btn" @click="addToCart(prices[9]?.packageId)" id="adults-pg16">Buy</button>
           </div>
         </div>
       </div>

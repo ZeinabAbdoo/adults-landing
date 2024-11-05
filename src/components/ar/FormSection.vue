@@ -37,7 +37,7 @@
         </div>
         <input type="hidden" v-model="fullPhoneNumber" />
         <input type="hidden" v-model="countryCode" />
-        <button type="submit" class="pop-btn" id="adults-btn">اشترك الآن</button>
+        <button type="submit" class="pop-btn" id="adults-form-ar">اشترك الآن</button>
       <div v-if="successMessage" class="success-message">{{ successMessage }}</div>
       </form>
     </div>

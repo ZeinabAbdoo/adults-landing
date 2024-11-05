@@ -43,7 +43,7 @@
                 required :disabled="loading" />
             </div>
             <input type="hidden" v-model="fullPhoneNumber" />
-            <button type="submit" class="pop-btn" :disabled="loading">Register for White Friday Deals</button>
+            <button type="submit" class="pop-btn" :disabled="loading" id="adults-pop-en">Register for White Friday Deals</button>
           </form>
           <div v-if="loading" class="spinner-overlay">
             <div class="spinner"></div>
