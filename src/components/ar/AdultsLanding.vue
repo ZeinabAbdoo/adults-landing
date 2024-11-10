@@ -15,19 +15,7 @@
       <p>آراء طلابنا الإيجابية تعكس بوضوح الأثر العميق لدوراتنا على مساراتهم المهنية. فهم يؤكدون باستمرار على كيفية مساهمة هذه الدورات في تحسين أدائهم في العمل، وتعزيز مهاراتهم العملية، مما يشير إلى القيمة الكبيرة والفائدة الهائلة التي تقدمها أكاديميتنا.</p>
     </div>
 
-    <div class="adult-swiper">
-      <div ref="swiperContainer" class="swiper-container">
-        <div class="swiper-wrapper">
-          <div v-for="(review, index) in reviews" :key="index" class="swiper-slide">
-            <p>
-              <span class="review-stars">{{ '★'.repeat(review.stars) }}</span>
-            </p>
-            <p>{{ review.review }}</p>
-            <p class="review-by">{{ review.by }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ReviewSwiper />
   </div>
 
   <PackagesAdults ref="packagesSection"/>
@@ -53,6 +41,7 @@ import PackagesAdults from '../../components/ar/PackagesAdults.vue';
 import ViewAdults from '../../components/ar/ViewAdults.vue';
 import FormSection from '../../components/ar/FormSection.vue';
 import PopUp from '../../components/ar/PopUp2.vue';
+import ReviewSwiper from "../../components/ar/ReviewSwiper.vue";
 
 import Swiper from 'swiper';
 import 'swiper/css';
@@ -71,7 +60,8 @@ export default {
     PackagesAdults,
     ViewAdults,
     FormSection,
-    PopUp
+    PopUp,
+    ReviewSwiper
   },
   data() {
     return {

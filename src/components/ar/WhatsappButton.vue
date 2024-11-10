@@ -73,31 +73,33 @@ export default {
     backToChat() {
       this.isNewMessageVisible = false;
     },
-    async sendMessage() {
-      try {
-        const response = await fetch(`https://service.monglish.co.uk/api/get-phone-number`);
-        if (!response.ok) {
-          console.log('Network response was not ok');
-        }
-        const data = await response.json();
-        this.getNumber = data.phone_number;
+      async sendMessage() {
+  try {
+    const response = await fetch(`https://service.monglish.co.uk/api/get-phone-number`);
+    if (!response.ok) {
+      console.log('Network response was not ok');
+    }
+    const data = await response.json();
+    this.getNumber = data.phone_number;
 
-        // Define the base URL for WhatsApp, depending on the platform
-        const baseUrl = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-          ? 'whatsapp://send'
-          : 'https://web.whatsapp.com/send';
+    // Define the base URL for WhatsApp, depending on the platform
+    const baseUrl = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      ? 'whatsapp://send'
+      : 'https://web.whatsapp.com/send';
 
-        // Create the WhatsApp URL
-        const url = this.chatInput !== ''
-          ? `${baseUrl}?phone=${this.getNumber}&text=${this.chatInput}` // With a message
-          : `${baseUrl}?phone=${this.getNumber}`; // Without a message
+    // Encode the Arabic message
+    const arabicMessage = encodeURIComponent("تفاصيل منهج المعايشة للكبار");
 
-        // Open WhatsApp
-        window.open(url, '_blank');
-      } catch (error) {
-        console.error('Error fetching phone number:', error);
-      }
-    },
+    // Create the WhatsApp URL with the predefined message
+    const url = `${baseUrl}?phone=${this.getNumber}&text=${arabicMessage}`;
+
+    // Open WhatsApp
+    window.open(url, '_blank');
+  } catch (error) {
+    console.error('Error fetching phone number:', error);
+  }
+},
+
     animateSVG() {
       setInterval(() => {
         this.isPlainVisible = !this.isPlainVisible;
@@ -161,18 +163,17 @@ a.blantershow-chat {
 	position: fixed;
 	z-index: 98;
 	bottom: 2%;
-	right: 1%;
-	font-size: 3em;
+	right: 2%;
+	font-size: 2.5em;
 	border-radius: 30px;
 	box-shadow: 0 1px 15px rgba(32, 33, 36, .28);
   display: flex;
 }
 a.blantershow-chat i {
-	transform: scale(1.2);
 	margin: 0 10px 0 0;
 }
 a.blantershow-chat svg{
-  margin: 5px 10px;
+  margin: 0px 10px;
 }
 .header-chat {
 	background: linear-gradient(#25d366, #25d366) 14% 84%/16% 16%;
@@ -326,7 +327,6 @@ a.back-chat {
 	justify-content: center;
 	border-radius: 50%;
 	text-align: center;
-	line-height: 1; 
 	text-decoration: none; 
 }
 a.back-chat:hover {

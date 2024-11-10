@@ -1,675 +1,534 @@
 <template>
   <div class="packages">
-    <div class="packages-title-n">
-      <h3>مستقبلك يبدأ من هنا</h3>
-      <h1>تعليم تفاعلي، استثمار ذكي</h1>
-    </div>
-
-    <!-- Package Duration Selection (Only for adults) -->
-    <div class="packages-menu-n" v-if="selectedFilter === 'adults'">
-      <ul>
-        <li @click="selectMenu('two-months')" :class="{ selected: selectedMenu === 'two-months' }">شهرين</li>
-        <li @click="selectMenu('four-months')" :class="{ selected: selectedMenu === 'four-months' }">4 أشهر</li>
-        <li @click="selectMenu('six-months')" :class="{ selected: selectedMenu === 'six-months' }">6 أشهر</li>
-      </ul>
-    </div>
-
-    <!-- Adults Packages -->
-    <div class="packages-cards" v-if="selectedFilter === 'adults'">
-      <div class="packages-cards"  v-if="selectedMenu === 'two-months'">
-        <!-- Two Months Cards -->
-        <div class="package-card">
-          <div class="card-header">
-             <h3>
-                <span> (شهرين) </span>
-                <br>
-                المعايشة بلس
-             </h3>
-          </div>
-
-          <div class="card-body">
-            <p>“المعيشة بلس” هي باقتك المثالية، تقدم أقصى قيمة مقابل السعر بميزات فريدة وخدمة شاملة تضمن راحتك.</p>
-            <h2>{{ prices[16]?.price }}</h2>
-            
-            <h6>واستمتع بالاتي:</h6>
-            <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>نادى لايف كوتش:<span>جلسة مجانية</span></li>
-              <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-            </ul>
-            <button class="purchase-btn" @click="addToCart(prices[16]?.packageId)" id="adults-pg1">شراء</button>
-          </div>
-        </div>
-        <div class="package-card">
-          <div class="card-header">
-            <h3><span> (شهرين)</span>
-            <br>المعايشة</h3>
-          </div>
-          <div class="card-body">
-            <p>باقة “المعيشة” توفر العديد من الميزات وهي الخيار المعتاد لعملائنا، تضمن الراحة والخدمات المتميزة بكفاءة.</p>
-            <h2>{{ prices[15]?.price }}</h2>
-            
-            <h6>واستمتع بالاتي:</h6>
-            <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-            </ul>
-            <button class="purchase-btn" @click="addToCart(prices[15]?.packageId)" id="adults-pg2">شراء</button>
-          </div>
-        </div>
-        <div class="package-card">
-          <div class="card-header">
-            <h3><span> (شهرين)</span>
-            <br>
-            أساسية</h3>
-          </div>
-          <div class="card-body">
-            <p>باقة مونجلش الأساسية هي الأقل سعراً، ولكنها تحتوي على بعض ميزات دوراتنا التي توفر تجربة تعليمية مميزة.</p>
-            <h2>{{ prices[14]?.price }}</h2>
-            
-            <h6>واستمتع بالاتي:</h6>
-            <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة شهرياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-            </ul>
-            <button class="purchase-btn" @click="addToCart(prices[14]?.packageId)" id="adults-pg3">شراء</button>
-          </div>
-        </div>
+    <img
+      src="@/assets/images/bundle1.png"
+      alt="Bundle Image"
+      class="bundle-image"
+    />
+    <div class="packages-text">
+      <div class="bundle-info">
+        <p class="offer-text">سنة كاملة ضعف المدة بسعر 1140 دولار فقط!</p>
       </div>
-
-      <div class="packages-cards" v-else-if="selectedMenu === 'four-months'">
-        <!-- Four Months Cards -->
-        <div class="package-card">
-          <div class="card-header">
-            <h3>
-              <span> (4 شهور)</span>
-              <br>
-              المعايشة بلس</h3>
-          </div>
-          <div class="card-body">
-            <p>“المعيشة بلس” هي باقتك المثالية، تقدم أقصى قيمة مقابل السعر بميزات فريدة وخدمة شاملة تضمن راحتك.</p>
-            <h2>
-              {{ prices[13]?.price }}
-              <span class="sloped-line">{{ prices[13]?.beforePrice }}</span> 
-            </h2>
-            <h6>واستمتع بالاتي:</h6>
-            <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>نادى لايف كوتش:<span>جلسة مجانية</span></li>
-              <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-            </ul>
-            <button class="purchase-btn" @click="addToCart(prices[13]?.packageId)" id="adults-pg4">شراء</button>
-          </div>
-        </div>
-
-        <div class="package-card">
-          <div class="card-header">
-            <h3>
-              <span> (4 شهور)</span>
-              <br>
-              المعايشة</h3>
-          </div>
-          <div class="card-body">
-            <p>باقة “المعيشة” توفر العديد من الميزات وهي الخيار المعتاد لعملائنا، تضمن الراحة والخدمات المتميزة بكفاءة.</p>
-            <h2>
-              {{ prices[12]?.price }}
-              <span class="sloped-line">{{ prices[12]?.beforePrice }}</span> 
-            </h2>
-            <h6>واستمتع بالاتي:</h6>
-            <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-            </ul>
-            <button class="purchase-btn" @click="addToCart(prices[12]?.packageId)" id="adults-pg5">شراء</button>
-          </div>
-        </div>
-
-        <div class="package-card">
-          <div class="card-header">
-            <h3>
-              <span> (4 شهور)</span>
-              <br>
-              أساسية</h3>
-          </div>
-          <div class="card-body">
-            <p>باقة مونجلش الأساسية هي الأقل سعراً، ولكنها تحتوي على بعض ميزات دوراتنا التي توفر تجربة تعليمية مميزة.</p>
-            <h2>{{ prices[11]?.price }}</h2>
-          
-            <h6>واستمتع بالاتي:</h6>
-            <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>إجتماع شهري لأولياء الأمور</li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-            </ul>
-            <button class="purchase-btn" @click="addToCart(prices[11]?.packageId)" id="adults-pg6">شراء</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="packages-cards" v-else-if="selectedMenu === 'six-months'">
-        <!-- Six Months Cards -->      
-        <div class="package-card">
-          <div class="card-header">
-              <h3>
-                <span> (6 اشهر)</span>
-                <br>
-                المعايشة بلس
-              </h3>
-              <p class="badge"><span>الأفضل <br><bold>قيمة</bold></span></p>
-            </div>
-          <div class="card-body">
-            <p>“المعيشة بلس” هي باقتك المثالية، تقدم أقصى قيمة مقابل السعر بميزات فريدة وخدمة شاملة تضمن راحتك.</p>
-            <h2>
-                {{ prices[10]?.price }}
-                <span class="sloped-line">{{ prices[10]?.beforePrice }}</span> 
-            </h2>
-            <h6>واستمتع بالاتي:</h6>
-            <ul>
-                <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-                <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-                <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-                <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-                <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-                <li>نادى لايف كوتش:<span>جلسة مجانية</span></li>
-                <li>نادى الصوتــــــــــيات:<span>بطلب من المدرب</span></li>
-                <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-              </ul>
-              <button class="purchase-btn" @click="addToCart(prices[10]?.packageId)" id="adults-pg7">شراء</button>
-          </div>
-        </div>
-        <div class="package-card">
-          <div class="card-header">
-            <h3>
-              <span> (6 اشهر)</span>
-              <br>
-              المعايشة
-            </h3>
-            <p class="badge"><span>الأفضل <br><bold>مبيعاً</bold></span></p>
-          </div>
-          <div class="card-body">
-            <p>باقة “المعيشة” توفر العديد من الميزات وهي الخيار المعتاد لعملائنا، تضمن الراحة والخدمات المتميزة بكفاءة.</p>
-            <h2>
-              {{ prices[9]?.price }}
-              <span class="sloped-line">{{ prices[9]?.beforePrice }}</span> 
-            </h2>
-            <h6>واستمتع بالاتي:</h6>
-            <ul>
-              <li>حصص أســـــــاسية:<span> 8 شهرياً</span></li>
-              <li>نادى القـــــــــــــــــراءة:<span> مرة أسبوعياً</span></li>
-              <li>نادى المـــــــناظرات:<span> مرة شهرياً</span></li>
-              <li>نادى المــــــــــــحادثة:<span> يومياً</span></li>
-              <li>نادى الســــــــــــــينما:<span>مرة أسبوعياً</span></li>
-              <li>تقاريــــــر شهريـــــــــــة مفصلة لمستوى اللغة</li>
-            </ul>
-            <button class="purchase-btn" @click="addToCart(prices[9]?.packageId)" id="adults-pg8">شراء</button>
-          </div>
-        </div>
+      <div class="blurred-box">
+        <h4>اغتنم عروض الجمعة البيضاء <span>(للبالغين)</span></h4>
+        <h2>احصل على <span>ضعف المدة بنفس السعر!</span></h2>
+        <p>
+          سجّل الآن واحصل على 6 أشهر تدريبية، بالإضافة إلى 6 أشهر مجاناً! فرصة
+          ذهبية لتعزيز مهاراتك وفتح آفاق جديدة لمستقبلك المهني.
+        </p>
+        <h3>لا تفوت هذه الفرصة المميزة واستمتع بعروض الجمعة البيضاء!</h3>
+        <button @click="addToCart(prices[37]?.packageId)" id="pg-ar-adults">
+          احجز الآن!
+        </button>
+        <button @click="sendMessage" id="kids-wa5-ar">
+          لمعرفة الأسعار للمدد الأقل، تواصل معنا!
+          <i class="fab fa-whatsapp"></i>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
+<style scoped>
+.packages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl;
+  background-image: url("@/assets/images/adults.png");
+  background-size: cover;
+  background-position: center;
+  font-family: "DIN Next LT Arabic", sans-serif;
+  padding: 3% 0;
+}
+
+.packages-text {
+  width: 60%;
+}
+
+.bundle-image {
+  z-index: 1;
+  margin-right: 250px;
+}
+
+.bundle-info {
+  background-color: #ffffff7e;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  text-align: center;
+  width: 50%;
+}
+
+.offer-text {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.blurred-box {
+  background: rgba(44, 44, 44, 0.548);
+  text-align: right;
+  margin-right: -50px;
+}
+
+.blurred-box h4,
+.blurred-box h2,
+.blurred-box p,
+.blurred-box h3 {
+  color: #fff;
+  font-weight: 500;
+  padding-right: 6%;
+  line-height: 0px;
+}
+
+.blurred-box h4 {
+  padding-top: 2%;
+  font-size: 48px;
+}
+
+.blurred-box h2 {
+  font-size: 48px;
+  margin-top: -25px;
+}
+
+.blurred-box h4 span {
+  background-color: #f47d21;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 0 5px;
+  height: 25px;
+  line-height: 0px;
+}
+
+.blurred-box h2 span {
+  color: #f47d21;
+}
+
+.blurred-box h3 {
+  margin-top: 10px;
+  font-size: 32px;
+}
+
+.blurred-box p {
+  font-size: 20px;
+  line-height: 30px;
+  width: 75%;
+}
+
+button {
+  max-width: 50%;
+  padding: 0.6rem 2rem 1rem 2rem;
+  background: linear-gradient(45deg, #fe9b4f, #f77919);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+  margin-right: 6%;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
+  font-family: "DIN Next LT Arabic", sans-serif;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #f47e23, #fe9b4f);
+  transform: scale(1.05);
+}
+
+#kids-wa5-ar {
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+/* Media Queries */
+/* 1440px */
+@media (max-width: 1440px) {
+  .packages-text {
+    width: 55%;
+  }
+
+  .bundle-image {
+    margin-right: 140px;
+  }
+
+  .blurred-box h4,
+  .blurred-box h2,
+  .blurred-box p,
+  .blurred-box h3 {
+    line-height: 0px;
+  }
+
+  .blurred-box h4 {
+    font-size: 38px;
+  }
+
+  .blurred-box h2 {
+    font-size: 44px;
+  }
+
+  .blurred-box h3 {
+    margin-top: 5px;
+    font-size: 27px;
+  }
+
+  .blurred-box p {
+    font-size: 18px;
+    width: 75%;
+    line-height: 24px;
+  }
+}
+
+/* 1280px */
+@media (max-width: 1280px) {
+  .packages-text {
+    width: 55%;
+  }
+
+  .bundle-image {
+    margin-right: 180px;
+    width: 30%;
+  }
+
+  .bundle-info {
+    width: 60%;
+  }
+
+  .blurred-box h4,
+  .blurred-box h2,
+  .blurred-box p,
+  .blurred-box h3 {
+    line-height: 0px;
+  }
+
+  .blurred-box h4 {
+    font-size: 35px;
+  }
+
+  .blurred-box h2 {
+    font-size: 40px;
+  }
+
+  .blurred-box h3 {
+    margin-top: 5px;
+    font-size: 25px;
+  }
+
+  .blurred-box p {
+    font-size: 18px;
+    width: 80%;
+    line-height: 24px;
+  }
+
+  button {
+    font-size: 18px;
+  }
+}
+
+/* 1020px */
+@media (max-width: 1024px) {
+  .packages-text {
+    width: 65%;
+  }
+
+  .bundle-image {
+    margin-right: 100px;
+    width: 28%;
+  }
+
+  .blurred-box h4 {
+    font-size: 34px;
+  }
+
+  .blurred-box h2 {
+    font-size: 40px;
+  }
+
+  .blurred-box h3 {
+    font-size: 24px;
+  }
+
+  .blurred-box p {
+    font-size: 18px;
+    width: 90%;
+  }
+
+  button {
+    max-width: 60%;
+  }
+}
+
+/* 768px */
+@media (max-width: 769px) {
+  .packages-text {
+    width: 65%;
+  }
+
+  .bundle-info {
+    width: 80%;
+    margin: 0px;
+  }
+
+  .blurred-box h4,
+  .blurred-box h2,
+  .blurred-box p,
+  .blurred-box h3 {
+    line-height: 0px;
+  }
+
+  .offer-text {
+    font-size: 18px;
+  }
+
+  .bundle-image {
+    margin-right: 20px;
+    width: 28%;
+  }
+
+  .blurred-box h4 {
+    font-size: 26px;
+  }
+
+  .blurred-box h2 {
+    font-size: 31px;
+  }
+
+  .blurred-box h3 {
+    font-size: 20px;
+  }
+
+  .blurred-box p {
+    font-size: 16px;
+    width: 90%;
+    line-height: 18px;
+  }
+
+  button {
+    max-width: 60%;
+    font-size: 14px;
+  }
+}
+
+/* 440px */
+@media (max-width: 440px) {
+  .bundle-image {
+    display: none;
+  }
+
+  .packages {
+    background: url("@/assets/images/adults2.png"),
+      linear-gradient(180deg, rgba(64, 64, 64, 0) 30%, #1e1e1e 100%);
+    min-height: 140vh;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .packages-text {
+    width: 100%;
+    text-align: center;
+  }
+  .bundle-info {
+    margin: 0 auto;
+    margin-top: -200px;
+  }
+
+  .blurred-box {
+    background: transparent;
+    text-align: center;
+    margin-right: 0;
+  }
+  .blurred-box h4,
+  .blurred-box h2,
+  .blurred-box h3 {
+    line-height: 30px;
+  }
+
+  .offer-text {
+    font-size: 19px;
+  }
+
+  .blurred-box h4 {
+    font-size: 28px;
+  }
+
+  .blurred-box h4 span {
+    margin-bottom: -25px;
+  }
+
+  .blurred-box h2 {
+    font-size: 28px;
+  }
+
+  .blurred-box h3 {
+    font-size: 23px;
+    margin-bottom: -5px;
+  }
+
+  .blurred-box p {
+    font-size: 18px;
+    width: 90%;
+    line-height: 25px;
+  }
+
+  button {
+    max-width: 100%;
+    font-size: 19px;
+    margin-bottom: 0;
+  }
+}
+</style>
+
 <script>
-  import axios from 'axios';
-  export default {
-    data() {
-      return {
-        selectedFilter: 'adults',
-        selectedMenu: 'two-months',
-        prices: {},
-      };
+import axios from "axios";
+export default {
+  data() {
+    return {
+      prices: {},
+    };
+  },
+  methods: {
+    async sendMessage() {
+      try {
+        const response = await fetch(
+          `https://service.monglish.co.uk/api/get-phone-number`
+        );
+        if (!response.ok) {
+          console.log("Network response was not ok");
+        }
+        const data = await response.json();
+        this.getNumber = data.phone_number;
+
+        if (this.getNumber) {
+          const baseUrl =
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+              navigator.userAgent
+            )
+              ? "whatsapp://send"
+              : "https://web.whatsapp.com/send";
+
+          // Encode the Arabic message
+          const arabicMessage = encodeURIComponent(
+            "تفاصيل منهج المعايشة للأطفال"
+          );
+
+          // Create the WhatsApp URL with the predefined message
+          const url = `${baseUrl}?phone=${this.getNumber}&text=${arabicMessage}`;
+
+          // Open WhatsApp
+          window.open(url, "_blank");
+        }
+      } catch (error) {
+        console.error("Error fetching phone number:", error);
+      }
     },
-    methods: {
-      toggleFilter(event) {
-        this.selectedFilter = event.target.checked ? 'adults' : 'kids';
-        if (this.selectedFilter === 'adults') {
-          this.selectedMenu = 'two-months';
-        } else {
-          this.selectedMenu = 'two-months';
-        }
-      },
-      selectMenu(menu) {
-        this.selectedMenu = menu;
-      },
-      fetchPackagePrices() {
-        let url = sessionStorage.getItem('userInfo') ? '/api/user/get-course-packages' : '/api/session/get-course-packages';
-        const userInfo = sessionStorage.getItem('userInfo');
-        let headers = {};
-        if (userInfo) {
-          try {
-            const parsedUserInfo = JSON.parse(userInfo);
-            const token = parsedUserInfo.token;
-            if (token) {
-              headers['Authorization'] = `Bearer ${token}`;
-            }
-          } catch (error) {
-            console.error('Error parsing userInfo from sessionStorage:', error);
+    fetchPackagePrices() {
+      let url = sessionStorage.getItem("userInfo")
+        ? "/api/user/get-course-packages"
+        : "/api/session/get-course-packages";
+      const userInfo = sessionStorage.getItem("userInfo");
+      let headers = {};
+      if (userInfo) {
+        try {
+          const parsedUserInfo = JSON.parse(userInfo);
+          const token = parsedUserInfo.token;
+          if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
           }
+        } catch (error) {
+          console.error("Error parsing userInfo from sessionStorage:", error);
         }
-        axios.get(url, { headers })
-        .then(response => {
+      }
+      axios
+        .get(url, { headers })
+        .then((response) => {
           const data = response.data;
-          console.log('Full API response:', data); 
+          console.log("Full API response:", data);
           this.prices = {};
 
           if (data.success) {
             const packages = data.data;
             packages.forEach((packageData) => {
-              console.log('Package Data:', packageData); 
+              console.log("Package Data:", packageData);
 
               const packageId = packageData.id;
               const packagePrice = packageData.packagePrice;
               const beforePrice = packageData.packageBeforePrice;
-              const currency = packageData.currency_ar;
+              const currency = packageData.currency_en;
+              const packagePeriod = packageData.packagePeriod;
 
-              console.log('beforePrice:', beforePrice); 
+              console.log("beforePrice:", beforePrice);
               this.prices[packageId] = {
                 price: `${packagePrice} ${currency}`,
                 beforePrice: beforePrice ? `${beforePrice} ${currency}` : null,
-                packageId: packageId
+                packagePeriod: packagePeriod,
+                packageId: packageId,
               };
             });
           }
         })
-        .catch(error => console.error('Error fetching package details:', error));
+        .catch((error) =>
+          console.error("Error fetching package details:", error)
+        );
+    },
+    addToCart(packageId) {
+      let url = sessionStorage.getItem("userInfo")
+        ? "/api/user/cart"
+        : "/api/session/cart";
+      const userInfo = sessionStorage.getItem("userInfo");
+      let headers = {};
+      if (userInfo) {
+        try {
+          const parsedUserInfo = JSON.parse(userInfo);
+          const token = parsedUserInfo.token;
 
-      },
-      addToCart(packageId) {
-        let url = sessionStorage.getItem('userInfo') ? '/api/user/cart' : '/api/session/cart';
-        const userInfo = sessionStorage.getItem('userInfo');
-        let headers = {};
-        if (userInfo) {
-          try {
-            const parsedUserInfo = JSON.parse(userInfo);
-            const token = parsedUserInfo.token;
-
-            if (token) {
-              headers['Authorization'] = `Bearer ${token}`;
-              headers['Content-type'] = 'application/json';
-            }
-          } catch (error) {
-            console.error('Error parsing userInfo from sessionStorage:', error);
+          if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+            headers["Content-type"] = "application/json";
           }
+        } catch (error) {
+          console.error("Error parsing userInfo from sessionStorage:", error);
         }
-        axios.post(url, {
-          course_package_id: packageId,
-          quantity: 1 
-        }, { headers })
-        .then(response => {
-          console.log('Item added to cart successfully:', response.data);
-          this.$router.push({ name: 'CartAr' }).then(() => {
-              window.location.reload();
+      }
+      axios
+        .post(
+          url,
+          {
+            course_package_id: packageId,
+            quantity: 1,
+          },
+          { headers }
+        )
+        .then((response) => {
+          console.log("Item added to cart successfully:", response.data);
+          this.$router.push({ name: "CartAr" }).then(() => {
+            window.location.reload();
           });
         })
-        .catch(error => {
-          console.error('Error adding item to cart:', error.response ? error.response.data : error.message);
+        .catch((error) => {
+          console.error(
+            "Error adding item to cart:",
+            error.response ? error.response.data : error.message
+          );
         });
-      }
     },
-    mounted() {
-      this.fetchPackagePrices();
+  },
+  mounted() {
+    this.fetchPackagePrices();
+  },
+  computed: {
+    pricePerPeriod() {
+      return (packageId) => {
+        const priceData = this.prices[packageId];
+        if (priceData && priceData.price && priceData.packagePeriod) {
+          const price = parseFloat(priceData.price.split(" ")[0]);
+          const period = parseFloat(priceData.packagePeriod);
+          if (period !== 0) {
+            return price / period;
+          }
+        }
+        return null;
+      };
     },
-  };
+  },
+};
 </script>
-
-<style scoped>
-  .packages{
-    direction: rtl;
-  }
-  .packages-filter-switch {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    position: relative;
-  }
-
-  .label-out {
-    position: absolute;
-    width: 250px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-    font-size: 20px;
-  }
-
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 120px;
-    height: 45px;
-  }
-
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .slider {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    border-radius: 34px;
-    cursor: pointer;
-    transition: background-color 0.4s;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 35px;
-    width: 35px;
-    left: 5px;
-    bottom: 5px;
-    background-color: orange;
-    border-radius: 50%;
-    transition: transform 0.4s;
-  }
-
-  input:checked+.slider:before {
-    transform: translateX(75px);
-  }
-
-  input:checked~.slider .label-left {
-    opacity: 1;
-  }
-
-  input:checked~.slider .label-right {
-    opacity: 0;
-  }
-
-  input:not(:checked)~.slider .label-left {
-    opacity: 0;
-  }
-
-  input:not(:checked)~.slider .label-right {
-    opacity: 1;
-  }
-
-  .label {
-    position: absolute;
-    font-size: 20px;
-    font-weight: bold;
-    color: orange;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
-
-  .label-left {
-    left: 15px;
-  }
-
-  .label-right {
-    right: 15px;
-  }
-
-  .packages {
-    background-image: url('@/assets/images/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    font-family: 'DIN Next LT Arabic', sans-serif;
-    padding: 20px 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-  }
-
-  .packages-title-n {
-    text-align: center;
-    color: white;
-  }
-
-  .packages-title-n h3 {
-    font-size: 2.5rem;
-    font-weight: 500;
-    line-height: 30px;
-  }
-
-  .packages-title-n h1 {
-    font-size: 3rem;
-    font-weight: 500;
-    line-height: 30px;
-  }
-
-  .packages-menu-n {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-  }
-
-  .packages-menu-n ul {
-    list-style: none;
-    padding: 10px;
-    display: flex;
-    border-bottom: 1px solid black;
-  }
-
-  .packages-menu-n li {
-    margin: 0 20px;
-    color: white;
-    cursor: pointer;
-    position: relative;
-  }
-
-  .packages-menu-n li:hover,
-  .packages-menu li:focus,
-  .packages-menu li:active,
-  .packages-menu li.selected {
-    color: #ffa500;
-  }
-
-  .packages-menu-n li.selected::after {
-    content: '';
-    display: inline-block;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M9.2793 2.82026L4.10131 7.99818L9.2793 13.1761L7.22864 15.2268L-8.29697e-05 7.99818L7.22864 0.769531L9.2793 2.82026Z" fill="white"/><path d="M13.9493 15.2268L6.72069 7.99818L13.9493 0.769531L16 2.82026L10.8221 7.99818L16 13.1761L13.9493 15.2268Z" fill="white"/></svg>');
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    right: -25px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .packages-menu-n li.selected::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #ffa500;
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-  }
-
-  .packages-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .package-card {
-    background: #fff;
-    border-radius: 30px;
-    padding: 20px;
-    width: 100%;
-    max-width: 320px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .card-header h3 {
-    color: #000000;
-    font-size: 27px;
-    margin-top: 50px;
-    margin-bottom: -25px;
-  }
-
-  .card-header h3 span {
-    color: #175f87;
-    font-size: 24px;
-  }
-
-  .card-header .badge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-right: 160px solid transparent;
-    border-top: 160px solid #ff8901;
-    margin-top: -0.5px;
-    border-radius: 20px 0 0 0;
-  }
-
-  .card-header .badge span {
-    position: absolute;
-    left: 15px;
-    top: -150px;
-    transform: rotate(-45deg);
-    white-space: nowrap;
-    font-size: 20px;
-    color: #fff;
-  }
-
-  .card-header .badge bold {
-    font-size: 32px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  .card-body p {
-    color: #666;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    font-size: 13px;
-  }
-
-  .card-body h2 {
-    color: #F47D21;
-    font-weight: 600;
-    font-size: 34px;
-    margin-bottom: 25px;
-    margin-top: -15px;
-  }
-
-  .card-body h6 {
-    font-weight: 900;
-    color: #000000;
-    font-size: 14px;
-    margin-top: -5px;
-    margin-bottom: 5px;
-  }
-  .card-body ul {
-    list-style: none;
-    padding: 0;
-  }
-  .card-body li {
-    position: relative;
-    padding-right: 20px;
-    margin-bottom: 10px;
-    color: #666;
-    border-bottom: 1px solid #e9e9e9;
-    padding-bottom: 5px;
-  }
-  .card-body li span{
-    color: #f47e23;
-  }
-  .card-body li::before {
-    content: '✓';
-    position: absolute;
-    right: 0;
-    color: #f48026;
-    font-weight: bold;
-  }
-  .card-body li:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-  }
-  .purchase-btn{
-    width: 100%;
-    padding: 8px 0;
-    background: linear-gradient(45deg, #fe9b4f, #f47e23);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    font-size: larger;
-    font-family: 'DIN Next LT Arabic', sans-serif;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-  }
-
-  @media (max-width: 800px) {
-    .packages-title-n h3 {
-      font-size: 1.5rem;
-    }
-    .packages-title-n h1 {
-      font-size: 2rem;
-    }
-  }
-  .sloped-line {
-    position: relative;
-    display: inline-block;
-    color: #165E84;
-    font-size: 30px;
-    margin-right: 5%;
-    opacity: 0.7; 
-  }
-  .sloped-line::after {
-    content: '';
-    position: absolute;
-    top: 80%;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #FF4646; 
-    transform: rotate(-15deg); 
-    transform-origin: left center;
-  }
-</style>

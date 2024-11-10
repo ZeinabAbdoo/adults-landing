@@ -28,7 +28,7 @@
     </div>
 
     <div class="footer-box">
-© 2019-2024 Monglish Academy, All rights reserved. "Monglish" and "Living Curriculum" are trademarks of our globally registered and copyrighted methodology. For more details, visit the registration link.    
+© 2019-2024 Monglish Academy, All rights reserved. "Monglish" and "Living Curriculum" are trademarks of our globally registered and copyrighted methodology. 
 </div>
   </footer>
 </template>

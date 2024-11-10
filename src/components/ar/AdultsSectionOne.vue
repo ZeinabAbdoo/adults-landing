@@ -17,18 +17,33 @@ export default {
   name: "MonglishSectionOne",
   methods: {
     async sendMessage() {
-      try {
-        const response = await fetch(`https://service.monglish.co.uk/api/get-phone-number`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        const url = `https://wa.me/${data.phone_number}`; 
-        window.open(url, '_blank');
-      } catch (error) {
-        console.error('Error fetching phone number:', error);
-      }
+  try {
+    const response = await fetch(`https://service.monglish.co.uk/api/get-phone-number`);
+    if (!response.ok) {
+      console.log('Network response was not ok');
     }
+    const data = await response.json();
+    this.getNumber = data.phone_number;
+
+    if (this.getNumber) {
+      const baseUrl = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        ? 'whatsapp://send'
+        : 'https://web.whatsapp.com/send';
+
+      // Encode the Arabic message
+      const arabicMessage = encodeURIComponent("تفاصيل منهج المعايشة للكبار");
+
+      // Create the WhatsApp URL with the predefined message
+      const url = `${baseUrl}?phone=${this.getNumber}&text=${arabicMessage}`;
+
+      // Open WhatsApp
+      window.open(url, '_blank');
+    }
+  } catch (error) {
+    console.error('Error fetching phone number:', error);
+  }
+}
+
   }
 };
 </script>

@@ -5,15 +5,19 @@
         <h2>مستويات</h2>
         <h1>تدريب البالغين</h1>
         <p>
-          نهدف من خلال تدريب البالغين إلى تزويدهم بالمهارات اللغوية اللازمة للتميز في سوق العمل العالمي، مما يفتح أمامهم آفاقاً واسعة للنمو المهني والتطوير الشخصي.
+          نهدف من خلال تدريب البالغين إلى تزويدهم بالمهارات اللغوية اللازمة
+          للتميز في سوق العمل العالمي، مما يفتح أمامهم آفاقاً واسعة للنمو المهني
+          والتطوير الشخصي.
         </p>
         <button @click="sendMessage" id="adults-wa2-ar">
           إشترك معنا الأن
           <i class="fab fa-whatsapp"></i>
         </button>
-        <h4>استعد لاختبار الـ IELTS وتعلم أهم الاستراتيجيات لحل الأسئلة المختلفة.</h4>
+        <h4>
+          استعد لاختبار الـ IELTS وتعلم أهم الاستراتيجيات لحل الأسئلة المختلفة.
+        </h4>
       </div>
-      <img src='@/assets/images/levels.png' alt="Training Background" />
+      <img src="@/assets/images/levels.png" alt="Training Background" />
     </div>
   </div>
 </template>
@@ -23,37 +27,51 @@ export default {
   methods: {
     async sendMessage() {
       try {
-        const response = await fetch(`https://service.monglish.co.uk/api/get-phone-number`);
+        const response = await fetch(
+          `https://service.monglish.co.uk/api/get-phone-number`
+        );
         if (!response.ok) {
-          console.log('Network response was not ok');
+          console.log("Network response was not ok");
         }
         const data = await response.json();
         this.getNumber = data.phone_number;
 
-        if (this.chatInput !== '' && this.getNumber) {
-          const baseUrl = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-              ? 'whatsapp://send'
-              : 'https://web.whatsapp.com/send';
-          const url = `${baseUrl}?phone=${this.getNumber}&text=${this.chatInput}`;
-          window.open(url, '_blank');
+        if (this.getNumber) {
+          const baseUrl =
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+              navigator.userAgent
+            )
+              ? "whatsapp://send"
+              : "https://web.whatsapp.com/send";
+
+          // Encode the Arabic message
+          const arabicMessage = encodeURIComponent(
+            "تفاصيل منهج المعايشة للكبار"
+          );
+
+          // Create the WhatsApp URL with the predefined message
+          const url = `${baseUrl}?phone=${this.getNumber}&text=${arabicMessage}`;
+
+          // Open WhatsApp
+          window.open(url, "_blank");
         }
       } catch (error) {
-        console.error('Error fetching phone number:', error);
+        console.error("Error fetching phone number:", error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-@import url('https://use.fontawesome.com/releases/v5.8.2/css/all.css');
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
 .adult-levels-container {
   margin: auto;
   background-color: #fff;
   color: #165e84;
-  font-family: 'DIN Next LT Arabic', sans-serif;
+  font-family: "DIN Next LT Arabic", sans-serif;
   font-weight: 500;
   direction: rtl;
   padding: 20px; /* Add padding for spacing */
@@ -72,10 +90,11 @@ export default {
   padding-bottom: 0;
 }
 
-.text-section h1, .text-section h2 {
+.text-section h1,
+.text-section h2 {
   font-size: 2.5em; /* Slightly smaller size */
   margin-bottom: 20px;
-  font-family: 'DIN Next LT Arabic', sans-serif;
+  font-family: "DIN Next LT Arabic", sans-serif;
   font-weight: 500;
   line-height: 48px;
 }
@@ -101,7 +120,7 @@ button {
   cursor: pointer;
   font-size: 1.2rem;
   margin-top: 1.5rem;
-  font-family: 'DIN Next LT Arabic', sans-serif;
+  font-family: "DIN Next LT Arabic", sans-serif;
   font-weight: 500;
   transition: background 0.3s ease, transform 0.3s ease;
 }
@@ -123,8 +142,8 @@ img {
 
   .text-section {
     width: 100%; /* Make text section full width on mobile */
-    text-align:center;
-      padding: 0%;
+    text-align: center;
+    padding: 0%;
   }
 
   h3 {
@@ -145,7 +164,7 @@ img {
   p {
     font-size: 16px; /* Smaller font size */
     line-height: 22px; /* Adjusted line height */
-      margin-bottom: 0;
+    margin-bottom: 0;
   }
 
   img {

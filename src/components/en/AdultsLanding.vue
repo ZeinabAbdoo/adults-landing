@@ -1,67 +1,69 @@
 <template>
-<PopUp />
+  <PopUp />
   <AdultsSectionOne />
   <AdultsSectionTwo />
   <AdultsSectionThree />
   <AdultsSectionFour />
   <AdultsSectionFive />
   <AdultLevels />
-  <FormSection/>
+  <FormSection />
 
   <!--Section Eight Content-->
   <div class="kids-sec8">
     <div class="kids-sec8-row">
-      <h4>ARE YOU SEEKING TO IMMERSE YOURSELF IN THE LANGUAGE IMMEDIATELY? <br><span>WELCOME!</span></h4>
-      <p>The positive feedback from our students clearly reflects the profound impact of our courses dedicated work on their career paths. They consistently affirm how these courses contribute to enhancing their performance at work and strengthening their practical skills. This underscores the significant value and immense benefit provided by our academy.</p>
+      <h4>
+        ARE YOU SEEKING TO IMMERSE YOURSELF IN THE LANGUAGE IMMEDIATELY?
+        <br /><span>WELCOME!</span>
+      </h4>
+      <p>
+        The positive feedback from our students clearly reflects the profound
+        impact of our courses dedicated work on their career paths. They
+        consistently affirm how these courses contribute to enhancing their
+        performance at work and strengthening their practical skills. This
+        underscores the significant value and immense benefit provided by our
+        academy.
+      </p>
     </div>
 
-    <div class="adult-swiper">
-      <div ref="swiperContainer" class="swiper-container">
-        <div class="swiper-wrapper">
-          <div v-for="(review, index) in reviews" :key="index" class="swiper-slide">
-            <p>
-              <span class="review-stars">{{ '★'.repeat(review.stars) }}</span>
-            </p>
-            <p>{{ review.review }}</p>
-            <p class="review-by">{{ review.by }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ReviewSwiper />
   </div>
 
-
-  <PackagesAdults ref="packagesSection"/>
+  <PackagesAdults ref="packagesSection" />
   <ViewThree />
- 
+
   <div class="full-section">
     <div class="Last-section">
       <h1>Still Need Help?</h1>
-      <p>We are happy to receive your messages and respond to all your inquiries.</p>
-      <a href="https://www.monglish.co.uk/en/contact" class="contact-btn">Contact Us</a>
-  </div>
+      <p>
+        We are happy to receive your messages and respond to all your inquiries.
+      </p>
+      <a href="https://www.monglish.co.uk/en/contact" class="contact-btn"
+        >Contact Us</a
+      >
+    </div>
   </div>
 </template>
 
 <script>
-import AdultLevels from '../../components/en/AdultLevels.vue';
-import AdultsSectionOne from '../../components/en/AdultsSectionOne.vue';
-import AdultsSectionTwo  from '../../components/en/AdultsSectionTwo.vue';
-import AdultsSectionThree from '../../components/en/AdultsSectionThree.vue';
-import AdultsSectionFour from '../../components/en/AdultsSectionFour.vue';
-import AdultsSectionFive from '../../components/en/AdultsSectionFive.vue';
-import PackagesAdults from '../../components/en/PackagesAdults.vue';
-import ViewThree from '../../components/en/ViewThree';
-import FormSection from '../../components/en/FormSection.vue';
-import PopUp from '../../components/en/PopUp2.vue';
+import AdultLevels from "../../components/en/AdultLevels.vue";
+import AdultsSectionOne from "../../components/en/AdultsSectionOne.vue";
+import AdultsSectionTwo from "../../components/en/AdultsSectionTwo.vue";
+import AdultsSectionThree from "../../components/en/AdultsSectionThree.vue";
+import AdultsSectionFour from "../../components/en/AdultsSectionFour.vue";
+import AdultsSectionFive from "../../components/en/AdultsSectionFive.vue";
+import PackagesAdults from "../../components/en/PackagesAdults.vue";
+import ViewThree from "../../components/en/ViewThree";
+import FormSection from "../../components/en/FormSection.vue";
+import PopUp from "../../components/en/PopUp2.vue";
+import ReviewSwiper from "../../components/ar/ReviewSwiper.vue";
 
-import Swiper from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import Swiper from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default {
-  name: 'AdultsCourses',
+  name: "AdultsCourses",
   components: {
     AdultLevels,
     AdultsSectionOne,
@@ -72,7 +74,8 @@ export default {
     PackagesAdults,
     ViewThree,
     FormSection,
-    PopUp
+    PopUp,
+    ReviewSwiper,
   },
   data() {
     return {
@@ -80,28 +83,32 @@ export default {
       totalSections: 3,
       currentIndex: 0,
       reviews: [
-  {
-    "stars": 5,
-    "review": "May God reward you. I attended the entire lecture with her, and she has a unique style characterized by calmness during the explanation.",
-    "by": "Abdullah Awda"
-  },
-  {
-    "stars": 4,
-    "review": "May God give you wellness. Honestly, I wish I had enrolled with Abdul Rahman a long time ago, as I noticed significant progress, thanks to God’s grace and then to your efforts with us and your attention to every detail, following up on assignments, and your commitment to reminding us of club dates as if he were your son.",
-    "by": "Um Abdul Rahman"
-  },
-  {
-    "stars": 5,
-    "review": "Honestly, may God bless her. She is one of the best teachers at the academy, and her dedication is remarkable. May God be pleased with her in her life.",
-    "by": "Mother of Iyad"
-  },
-  {
-    "stars": 5,
-    "review": "Peace be upon you. The reading club is truly excellent, and the person responsible for it is outstanding. She responds quickly, schedules appointments, and is very committed. May God reward her well.",
-    "by": "Fahd Mohammed"
-  }
-]
-, swiper: null, 
+        {
+          stars: 5,
+          review:
+            "May God reward you. I attended the entire lecture with her, and she has a unique style characterized by calmness during the explanation.",
+          by: "Abdullah Awda",
+        },
+        {
+          stars: 4,
+          review:
+            "May God give you wellness. Honestly, I wish I had enrolled with Abdul Rahman a long time ago, as I noticed significant progress, thanks to God’s grace and then to your efforts with us and your attention to every detail, following up on assignments, and your commitment to reminding us of club dates as if he were your son.",
+          by: "Um Abdul Rahman",
+        },
+        {
+          stars: 5,
+          review:
+            "Honestly, may God bless her. She is one of the best teachers at the academy, and her dedication is remarkable. May God be pleased with her in her life.",
+          by: "Mother of Iyad",
+        },
+        {
+          stars: 5,
+          review:
+            "Peace be upon you. The reading club is truly excellent, and the person responsible for it is outstanding. She responds quickly, schedules appointments, and is very committed. May God reward her well.",
+          by: "Fahd Mohammed",
+        },
+      ],
+      swiper: null,
     };
   },
   mounted() {
@@ -113,12 +120,12 @@ export default {
         this.swiper = new Swiper(swiperContainer, {
           loop: true,
           pagination: {
-            el: '.swiper-pagination',
+            el: ".swiper-pagination",
             clickable: true,
           },
           navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
           },
         });
         this.startAutoNavigate();
@@ -129,30 +136,30 @@ export default {
     startAutoNavigate() {
       setInterval(() => {
         if (this.swiper) {
-          this.swiper.slidePrev(); 
+          this.swiper.slidePrev();
         }
-      }, 3000); 
+      }, 3000);
     },
     toggleDescription(id) {
       this.activeDescription = this.activeDescription === id ? null : id;
     },
-        scrollToPackagesWithDelay() {
+    scrollToPackagesWithDelay() {
       setTimeout(() => {
-        if (this.$route.hash === '#packages-section') {
+        if (this.$route.hash === "#packages-section") {
           const packagesSection = this.$refs.packagesSection;
           if (packagesSection) {
-            packagesSection.$el.scrollIntoView({ behavior: 'smooth' });
+            packagesSection.$el.scrollIntoView({ behavior: "smooth" });
           }
         }
-      }, 300); 
-    }
+      }, 300);
+    },
   },
   watch: {
-    '$route.hash'() {
+    "$route.hash"() {
       this.scrollToPackagesWithDelay();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -160,7 +167,7 @@ export default {
 .kids-sec8 {
   padding: 2%;
   background-color: white;
-  height: auto; 
+  height: auto;
   direction: ltr;
 }
 .kids-sec8-row {
@@ -169,7 +176,7 @@ export default {
   align-items: center;
   text-align: center;
   margin-top: 1em;
-  font-family: 'DIN Next LT Arabic';
+  font-family: "DIN Next LT Arabic";
   font-weight: 500;
   color: #165e84;
 }
@@ -178,7 +185,7 @@ export default {
 }
 .kids-sec8-row span {
   font-size: 3.2vw;
-  font-family: 'DIN Next LT Arabic';
+  font-family: "DIN Next LT Arabic";
   font-weight: 500;
 }
 .kids-sec8-row p {
@@ -199,7 +206,7 @@ export default {
     padding-right: 20px;
     font-size: 48px;
   }
-  .kids-sec8-row h4 span{
+  .kids-sec8-row h4 span {
     font-size: 48px;
   }
   .kids-sec8-row p {
@@ -218,7 +225,7 @@ export default {
     padding-right: 0;
     font-size: 28px;
   }
-  .kids-sec8-row h4 span{
+  .kids-sec8-row h4 span {
     width: 100%;
     padding-right: 0;
     font-size: 28px;
@@ -238,10 +245,10 @@ export default {
 }
 .swiper-container {
   width: 100%;
-  background-image: url('@/assets/images/rev-bg.png');
+  background-image: url("@/assets/images/rev-bg.png");
   background-size: cover;
   background-position: center;
-  border-radius: 25px; 
+  border-radius: 25px;
   overflow: hidden;
 }
 .swiper-slide {
@@ -251,10 +258,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 300px; 
+  min-height: 300px;
 }
 .swiper-slide p {
-  font-family: 'DIN Next LT Arabic', sans-serif;
+  font-family: "DIN Next LT Arabic", sans-serif;
   font-weight: 500;
   padding: 1em;
   max-width: 80%;
@@ -267,13 +274,13 @@ export default {
 .review-by {
   margin-top: 15px;
   font-weight: bold;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   color: #fff;
   text-decoration: underline;
   text-decoration-color: #ff9800;
   text-decoration-thickness: 2px;
   text-underline-offset: 10px;
-  font-family: 'DIN Next LT Arabic', sans-serif;
+  font-family: "DIN Next LT Arabic", sans-serif;
 }
 
 .Last-section {
@@ -287,31 +294,30 @@ export default {
   margin: 40px auto 20px auto;
 }
 @media (max-width: 1440px) {
-  .Last-section{
-      width: 83%;
+  .Last-section {
+    width: 83%;
   }
 }
 @media (max-width: 1240px) {
-  .Last-section{
-      width: 81%;
+  .Last-section {
+    width: 81%;
   }
 }
 
 @media (max-width: 1040px) {
-  .Last-section{
-      width: 78%;
-
+  .Last-section {
+    width: 78%;
   }
 }
 .Last-section h1 {
   font-size: 40px;
   line-height: 60px;
-  font-family: 'DIN Next LT Arabic', sans-serif;
+  font-family: "DIN Next LT Arabic", sans-serif;
   font-weight: 500;
 }
 
 .Last-section p {
-  font-family: 'DIN Next LT Arabic', sans-serif;
+  font-family: "DIN Next LT Arabic", sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 32px;
@@ -319,49 +325,49 @@ export default {
 
 .contact-btn {
   display: inline-block;
-  background: linear-gradient(111.84deg, #2C80AC 0%, #165E84 100%);
+  background: linear-gradient(111.84deg, #2c80ac 0%, #165e84 100%);
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
   text-align: center;
   text-decoration: none;
-  font-family: 'DIN Next LT Arabic', sans-serif;
+  font-family: "DIN Next LT Arabic", sans-serif;
   font-size: 20px;
   font-weight: 500;
   position: absolute;
-  right: 20px; 
+  right: 20px;
   bottom: 20px;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
   .Last-section {
-    width: 95%;  /* Full width for mobile */
-    padding: 10px;  /* Adjust padding */
-    margin: 20px auto;  /* Adjust margin */
+    width: 95%; /* Full width for mobile */
+    padding: 10px; /* Adjust padding */
+    margin: 20px auto; /* Adjust margin */
   }
 
   .Last-section h1 {
-    font-size: 28px;  /* Smaller font size for mobile */
-    line-height: 40px;  /* Adjust line height */
+    font-size: 28px; /* Smaller font size for mobile */
+    line-height: 40px; /* Adjust line height */
   }
 
   .Last-section p {
-    font-size: 16px;  /* Smaller font size for mobile */
-    line-height: 24px;  /* Adjust line height */
+    font-size: 16px; /* Smaller font size for mobile */
+    line-height: 24px; /* Adjust line height */
   }
 
   .contact-btn {
-    padding: 8px 16px;  /* Adjust padding */
-    font-size: 18px;  /* Smaller font size for mobile */
-    position: relative;  /* Change position to relative */
-    right: auto;  /* Reset right position */
-    bottom: auto;  /* Reset bottom position */
-    margin-top: 10px;  /* Add margin for spacing */
+    padding: 8px 16px; /* Adjust padding */
+    font-size: 18px; /* Smaller font size for mobile */
+    position: relative; /* Change position to relative */
+    right: auto; /* Reset right position */
+    bottom: auto; /* Reset bottom position */
+    margin-top: 10px; /* Add margin for spacing */
   }
 }
-.full-section{
-    background-color: #fff;
-    padding:  30px 0;
+.full-section {
+  background-color: #fff;
+  padding: 30px 0;
 }
 </style>
