@@ -90,7 +90,7 @@ export default {
         name: this.fullName,
         email: this.email,
         phone: this.fullPhoneNumber,
-        stage: 'adults-landing-popup-form', 
+        stage: 'adults-landing', 
       };
 
       console.log("Payload before sending:", payload);

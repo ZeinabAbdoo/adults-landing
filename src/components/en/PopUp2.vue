@@ -118,7 +118,7 @@
         name: this.fullName,
         email: this.email,
         phone: this.fullPhoneNumber,
-        stage: 'adults-landing-popup', 
+        stage: 'adults-landing', 
       };
       
       console.log("Payload before sending:", payload);
@@ -137,6 +137,8 @@
             this.country = null; 
 
             this.closePopup2();
+
+            window.location.href = "https://fridayoffer.monglish.co.uk/en/";
           } else {
             console.error('Error in response:', data.message || 'Unknown error');
           }
@@ -241,7 +243,7 @@
 
 .popup-image {
   flex: 1;
-  background-image: url('@/assets/images/poup2-ar.jpeg');
+  background-image: url('@/assets/images/popup2-en.jpeg');
   background-size: cover;
   background-position: top center;
   border-radius: 0 20px 20px 0;
